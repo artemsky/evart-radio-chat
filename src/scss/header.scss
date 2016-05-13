@@ -1,0 +1,41 @@
+//div,section{
+//    border: 1px dotted black;
+//}
+header{
+    background: url(../img/header_back.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    height: 535px;
+    padding-top: 75px;
+}
+.evart-radio{
+    background: url(../img/radio_back.png);
+    width: 100%;
+    height: 403px;
+    border-radius: 10px;
+    box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.004);
+    border: 1px solid rgba(212, 212, 212, 0.65);
+    display: flex;
+
+    .evart-dock{
+        height: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+
+    }
+    .evart-panel{
+       flex: 7;
+        .evart-dots{
+            background-image: url(../img/dots.png);
+            width: 323px;
+            height: 18px;
+
+        }
+    }
+    .evart-playlist{
+        flex: 3;
+    }
+}
+

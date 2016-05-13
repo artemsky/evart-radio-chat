@@ -21,7 +21,9 @@ var gulp = require('gulp'),
         },
         img: 'img/',
         html: 'pages/',
-        dependencies: []
+        dependencies: [
+            "img/**"
+        ]
     };
 
 /*******************************************************************
