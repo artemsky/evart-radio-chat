@@ -1,0 +1,16 @@
+{
+  "name": "Evart-radio-chat",
+  "description": "Evart",
+  "main": "index.html",
+  "authors": [
+    "Mr.ArtemSky <mr.artemsky@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "~2.2.2"
+  }
+}
