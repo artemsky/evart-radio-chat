@@ -5,7 +5,7 @@
   "main": "index.html",
   "repository": {
     "type": "github",
-    "url": "https://github.com/artemsky/kinodrom.git"
+    "url": "https://github.com/artemsky/evart-radio-chat"
   },
   "devDependencies": {
     "bower": "^1.7.7",
@@ -26,5 +26,5 @@
     "getAll": "npm install && bower install && typings install"
   },
   "author": "Mr.ArtemSky",
-  "license": "ISC"
+  "license": "Apache 2.0"
 }
