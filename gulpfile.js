@@ -52,7 +52,7 @@ gulp.task('CompileHtml', function () {
 
 //Compile scss witch sourcemaps without PostCSS
 gulp.task('cpm-scss-debug', function () {
-    return gulp.src(['client.scss', 'admin.scss'], {cwd: dir.src + dir.styles.scss})
+    return gulp.src('main.scss', {cwd: dir.src + dir.styles.scss})
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write(dir.styles.maps))
@@ -81,7 +81,7 @@ gulp.task('cls-maps', function () {
 
 //Compile scss with PostCSS
 gulp.task('cpm-scss-release', function () {
-    return gulp.src(['client.scss', 'admin.scss'], {cwd: dir.src + dir.styles.scss})
+    return gulp.src('main.scss', {cwd: dir.src + dir.styles.scss})
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 5 versions'],
