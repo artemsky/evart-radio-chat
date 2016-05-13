@@ -28,6 +28,40 @@ header {
       background-image: url(../img/dots.png);
       width: 323px;
       height: 18px; }
+    .evart-radio .evart-panel .evart-display {
+      width: 100%;
+      flex: 3;
+      position: relative;
+      border: 5px solid transparent;
+      display: flex;
+      flex-flow: column wrap; }
+      .evart-radio .evart-panel .evart-display:before {
+        content: '';
+        background: linear-gradient(to top, #ffffff 5%, #494949 50%, #ffffff 52%, #d9d9d9 100%);
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
+        border-radius: 10px; }
+      .evart-radio .evart-panel .evart-display:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+        background-image: url(../img/display.png);
+        background-size: cover; }
+      .evart-radio .evart-panel .evart-display .evart-logo {
+        background-image: url(../img/logo.png);
+        align-self: flex-end;
+        z-index: 1;
+        width: 100%; }
+    .evart-radio .evart-panel .evart-controls {
+      width: 100%;
+      flex: 1; }
   .evart-radio .evart-playlist {
     flex: 3; }
 
