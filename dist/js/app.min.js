@@ -24,7 +24,14 @@ $(document).ready(function () {
 
         // Callback function
         onSlide: function(position, value) {
+            var bg = "url('../img/volume-on.png')";
             $(".evart-radio .evart-value").text(value + "%");
+            if(value < 1)
+                bg = "url('../img/volume-off.png')";
+
+            $(".evart-ico").css({
+                backgroundImage: bg
+            });
         },
 
         // Callback function

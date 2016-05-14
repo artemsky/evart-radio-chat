@@ -131,14 +131,15 @@ header {
         width: 270px;
         height: 19px;
         display: flex;
-        justify-content: center; }
+        justify-content: space-around;
+        margin-top: 25px; }
         .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider {
           border: 1px solid #1c1c1c;
           border-top-width: 2px;
           border-bottom: none;
           border-radius: 20px;
           background: #525252;
-          width: 173px;
+          width: 170px;
           height: 3px; }
         .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider__fill {
           background: url(../img/volume-fill.png);
@@ -157,9 +158,12 @@ header {
         .evart-radio .evart-panel .evart-controls .evart-volume .evart-ico {
           background-image: url(../img/volume-on.png);
           height: 19px;
-          width: 21px;
+          flex: 0 0 50px;
           background-repeat: no-repeat;
           background-position: left center; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .evart-value {
+          flex: 0 0 50px;
+          text-align: right; }
   .evart-radio .evart-playlist {
     flex: 3; }
 
