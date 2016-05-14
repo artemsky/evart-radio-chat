@@ -1,6 +1,61 @@
 html {
   background-color: #fff; }
 
+.rangeslider,
+.rangeslider__fill, .sound-rangeslider__fill, .sound-rangeslider,
+.playlist-rangeslider__fill, .playlist-rangeslider {
+  display: block;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  position: relative; }
+
+.rangeslider, .sound-rangeslider, .playlist-rangeslider {
+  background: #e6e6e6;
+  position: relative; }
+
+.rangeslider--horizontal {
+  height: 20px;
+  width: 100%; }
+
+.rangeslider--vertical {
+  width: 20px;
+  min-height: 150px;
+  max-height: 100%; }
+
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4; }
+
+.rangeslider__fill {
+  background: #00ff00;
+  position: absolute; }
+
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%; }
+
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%; }
+
+.rangeslider__handle, .sound-rangeslider__handle, .playlist-rangeslider__handle {
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute; }
+
+.rangeslider--horizontal .rangeslider__handle, .sound-rangeslider__handle, .playlist-rangeslider__handle {
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y; }
+
+.rangeslider--vertical .rangeslider__handle, .sound-rangeslider__handle, .playlist-rangeslider__handle {
+  left: -10px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x; }
+
 header {
   background: url(../img/header_back.png);
   background-repeat: no-repeat;
@@ -133,7 +188,7 @@ header {
         display: flex;
         justify-content: space-around;
         margin-top: 25px; }
-        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider {
+        .evart-radio .evart-panel .evart-controls .evart-volume .sound-rangeslider {
           border: 1px solid #1c1c1c;
           border-top-width: 2px;
           border-bottom: none;
@@ -141,11 +196,11 @@ header {
           background: #525252;
           width: 170px;
           height: 3px; }
-        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider__fill {
+        .evart-radio .evart-panel .evart-controls .evart-volume .sound-rangeslider__fill {
           background: url(../img/volume-fill.png);
           top: -2px;
           height: 3px; }
-        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider__handle__evart {
+        .evart-radio .evart-panel .evart-controls .evart-volume .sound-rangeslider__handle {
           background: url(../img/volume-track.png);
           width: 9px;
           height: 20px;
@@ -201,7 +256,8 @@ header {
       top: 10px;
       bottom: 10px;
       left: 10px;
-      right: 2px; }
+      right: 2px;
+      overflow: hidden; }
       .evart-radio .evart-playlist ul .evart-item {
         font-size: 18px;
         display: flex;
@@ -229,5 +285,32 @@ header {
             flex: 1; }
             .evart-radio .evart-playlist ul .evart-item .evart-info .evart-datetime .evart-time {
               font-size: 14px; }
+    .evart-radio .evart-playlist .evart-control {
+      position: absolute;
+      right: -28px;
+      width: 4px;
+      height: 100%; }
+      .evart-radio .evart-playlist .evart-control .playlist-rangeslider {
+        border-radius: 20px;
+        background: #b9b9b9;
+        width: 4px;
+        height: 100%;
+        transform: rotate(180deg); }
+      .evart-radio .evart-playlist .evart-control .playlist-rangeslider__fill {
+        background: #b9b9b9;
+        top: -2px;
+        height: 3px; }
+      .evart-radio .evart-playlist .evart-control .playlist-rangeslider__handle {
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background-image: -moz-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+        background-image: -webkit-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+        background-image: -ms-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+        box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.004);
+        width: 18px;
+        height: 14px;
+        position: relative;
+        left: -7px;
+        cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */

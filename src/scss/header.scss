@@ -154,7 +154,7 @@ header{
             display: flex;
             justify-content: space-around;
             margin-top: 25px;
-            @import "rangeslider";
+            @import "volume-track";
             .evart-trackbar{
               display: flex;
               align-items: center;
@@ -214,6 +214,7 @@ header{
         bottom: 10px;
         left: 10px;
         right: 2px;
+        overflow: hidden;
         .evart-item{
           font-size: 18px;
           display: flex;
@@ -247,6 +248,13 @@ header{
               }
             }
         }
+      }
+      .evart-control{
+        position: absolute;
+        right: -28px;
+        width: 4px;
+        height: 100%;
+        @import "playlist-track";
       }
 
     }
