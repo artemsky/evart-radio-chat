@@ -40,7 +40,7 @@ $(document).ready(function () {
         }
     });
 
-
+    var playlistRange = $('.evart-playlist .content-list').prop('scrollHeight');
     $('.evart-playlist input[type="range"]').rangeslider({
 
         // Feature detection the default is `true`.
@@ -59,19 +59,15 @@ $(document).ready(function () {
 
         // Callback function
         onInit: function() {
-            //$(".evart-radio .evart-value").text($(this)[0].value + "%");
+
+            playlistRange = playlistRange - $(this)[0].maxHandlePos;
+
+
         },
 
         // Callback function
         onSlide: function(position, value) {
-            // var bg = "url('../img/volume-on.png')";
-            // $(".evart-radio .evart-value").text(value + "%");
-            // if(value < 1)
-            //     bg = "url('../img/volume-off.png')";
-            //
-            // $(".evart-ico").css({
-            //     backgroundImage: bg
-            // });
+             $('.evart-playlist .content-list').css("transform", "translate(0, " + (-(playlistRange/100 * (100-value))) + "px)");
         },
 
         // Callback function
@@ -80,6 +76,9 @@ $(document).ready(function () {
         }
     });
 
-    // $('.evart-playlist-scroll').prop('scrollHeight');
+    $("nav ul a").click(function(e){
+        e.preventDefault();
+    });
+
 
 });
