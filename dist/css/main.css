@@ -16,7 +16,8 @@ header {
   border-radius: 10px;
   box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.004);
   border: 1px solid rgba(212, 212, 212, 0.65);
-  display: flex; }
+  display: flex;
+  padding: 0 10px; }
   .evart-radio .evart-dock {
     height: 100%;
     display: flex;
@@ -30,7 +31,7 @@ header {
       height: 18px; }
     .evart-radio .evart-panel .evart-display {
       width: 100%;
-      flex: 3;
+      flex: 7;
       position: relative;
       border: 5px solid transparent;
       display: flex;
@@ -86,7 +87,46 @@ header {
           flex: 2; }
     .evart-radio .evart-panel .evart-controls {
       width: 100%;
-      flex: 1; }
+      flex: 4;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center; }
+      .evart-radio .evart-panel .evart-controls .evart-buttons {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        width: 180px;
+        height: 40px;
+        justify-content: space-around;
+        align-items: center; }
+        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play {
+          flex: 0 0 90px;
+          height: 40px;
+          background-image: url(../img/btn-play.png);
+          background-repeat: no-repeat;
+          background-position: center; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play:hover {
+            background-image: url(../img/btn-play_hover.png); }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play:active {
+            background-image: url(../img/btn-play_active.png); }
+        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-pause {
+          flex: 0 0 90px;
+          height: 40px;
+          background-image: url(../img/btn-pause.png);
+          background-repeat: no-repeat;
+          background-position: center; }
+        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop {
+          height: 63px;
+          width: 63px;
+          background-image: url(../img/btn-off.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          left: 57px;
+          top: -10px; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop:hover {
+            background-image: url(../img/btn-off_hover.png); }
   .evart-radio .evart-playlist {
     flex: 3; }
 
