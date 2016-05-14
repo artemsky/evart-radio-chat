@@ -127,6 +127,39 @@ header {
           top: -10px; }
           .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop:hover {
             background-image: url(../img/btn-off_hover.png); }
+      .evart-radio .evart-panel .evart-controls .evart-volume {
+        width: 270px;
+        height: 19px;
+        display: flex;
+        justify-content: center; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider {
+          border: 1px solid #1c1c1c;
+          border-top-width: 2px;
+          border-bottom: none;
+          border-radius: 20px;
+          background: #525252;
+          width: 173px;
+          height: 3px; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider__fill {
+          background: url(../img/volume-fill.png);
+          top: -2px;
+          height: 3px; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .rangeslider__handle__evart {
+          background: url(../img/volume-track.png);
+          width: 9px;
+          height: 20px;
+          position: absolute;
+          top: -10px;
+          cursor: pointer; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .evart-trackbar {
+          display: flex;
+          align-items: center; }
+        .evart-radio .evart-panel .evart-controls .evart-volume .evart-ico {
+          background-image: url(../img/volume-on.png);
+          height: 19px;
+          width: 21px;
+          background-repeat: no-repeat;
+          background-position: left center; }
   .evart-radio .evart-playlist {
     flex: 3; }
 

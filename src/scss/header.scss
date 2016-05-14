@@ -148,6 +148,24 @@ header{
                   }
                 }
             }
+          .evart-volume{
+            width: 270px;
+            height: 19px;
+            display: flex;
+            justify-content: center;
+            @import "rangeslider";
+            .evart-trackbar{
+              display: flex;
+              align-items: center;
+            }
+            .evart-ico{
+              background-image: url(../img/volume-on.png);
+              height: 19px;
+              width: 21px;
+              background-repeat: no-repeat;
+              background-position: left center;
+            }
+          }
         }
     }
     .evart-playlist{

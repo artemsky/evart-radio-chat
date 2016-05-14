@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
     <!-- endbuild -->
 
-    <!-- Pure Rangeslider -->
-    <!-- build:css css/vendor/rangeSlider.min.css -->
-    <link rel="stylesheet" href="../bower_components/rangeslider-pure/dist/rangeSlider.min.css" type="text/css" />
+    <!-- Rangeslider.js -->
+    <!-- build:css css/vendor/rangeslider.min.css -->
+    <link rel="stylesheet" href="../bower_components/rangeslider.js/dist/rangeslider.css" type="text/css" />
     <!-- endbuild -->
 
     <!-- Stylesheet -->
@@ -52,7 +52,16 @@
                             </div>
                             <div class="evart-volume">
                                 <div class="evart-ico"></div>
-                                <div class="evart-trackbar"></div>
+                                <div class="evart-trackbar">
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        step="1"
+                                        value="60"
+                                        data-orientation="horizontal"
+                                    >
+                                </div>
                                 <div class="evart-value"></div>
                             </div>
                         </div>
@@ -89,9 +98,9 @@
 <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- endbuild -->
 
-<!-- Pure Rangeslider -->
-<!-- build:js js/vendor/rangeSlider.min.js -->
-<script type="text/javascript" src="../bower_components/rangeslider-pure/dist/rangeSlider.min.js"></script>
+<!-- Rangeslider.js -->
+<!-- build:js js/vendor/rangeslider.min.js -->
+<script type="text/javascript" src="../bower_components/rangeslider.js/dist/rangeslider.js"></script>
 <!-- endbuild -->
 
 <!-- Application -->

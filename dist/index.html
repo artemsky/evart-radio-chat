@@ -10,6 +10,9 @@
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
+    <!-- Rangeslider.js -->
+    <link rel="stylesheet" href="css/vendor/rangeslider.min.css">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/main.css" type="text/css" />
 
@@ -45,7 +48,16 @@
                             </div>
                             <div class="evart-volume">
                                 <div class="evart-ico"></div>
-                                <div class="evart-trackbar"></div>
+                                <div class="evart-trackbar">
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        step="1"
+                                        value="60"
+                                        data-orientation="horizontal"
+                                    >
+                                </div>
                                 <div class="evart-value"></div>
                             </div>
                         </div>
@@ -77,6 +89,9 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="js/vendor/bootstrap.min.js"></script>
+
+<!-- Rangeslider.js -->
+<script src="js/vendor/rangeslider.min.js"></script>
 
 <!-- Application -->
 <script src="js/app.min.js"></script>

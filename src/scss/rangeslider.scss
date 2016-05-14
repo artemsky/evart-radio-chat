@@ -1,0 +1,25 @@
+.rangeslider{
+    border: 1px solid rgb(28, 28, 28);
+    border-top-width: 2px;
+    border-bottom: none;
+    border-radius: 20px;
+    background: #525252;
+    width: 173px;
+    height: 3px;
+
+}
+
+.rangeslider__fill{
+    background: url(../img/volume-fill.png);
+    top: -2px;
+    height: 3px;
+}
+
+.rangeslider__handle__evart{
+    background: url(../img/volume-track.png);
+    width: 9px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    cursor: pointer;
+}
