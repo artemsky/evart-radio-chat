@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url("fonts/Roboto/Roboto-Thin.eot");
+  src: url("fonts/Roboto/Roboto-Thin.woff2") format("woff2"), url("fonts/Roboto/Roboto-Thin.woff") format("woff"), url("fonts/Roboto/Roboto-Thin.ttf") format("truetype"), url("fonts/Roboto/Roboto-Thin.svg#Roboto-Thin") format("svg"), url("fonts/Roboto/Roboto-Thin.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   background-color: #fff; }
 
 body {
-  height: 2000px; }
+  min-height: 2000px; }
 
 .rangeslider,
 .rangeslider__fill, .sound-rangeslider__fill, .sound-rangeslider,
@@ -313,8 +320,7 @@ header {
 nav {
   background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
-  height: 47px;
-  border: 1px solid #f3f3f3; }
+  height: 47px; }
   nav ul {
     margin: 0; }
     nav ul li {
@@ -325,7 +331,7 @@ nav {
         color: #9b9b9b; }
         nav ul li a:hover {
           color: #9b9b9b;
-          background: linear-gradient(to bottom, #ffffff 50%, #EFEFEF 50%); }
+          background: linear-gradient(to bottom, #ffffff 50%, #f2f2f2 50%); }
         nav ul li a:active, nav ul li a:focus {
           background: linear-gradient(to bottom, #02afe7 40%, #12bef7 75%);
           box-shadow: inset 0px 2px 0px 0px #0095c6; }
@@ -366,6 +372,8 @@ nav {
               width: 31px;
               height: 41px;
               background: url(../img/audio.png); }
+            nav ul li .evart-submenu .evart-head .evart-ico:hover .ico {
+              background: url(../img/audio-active.png); }
         nav ul li .evart-submenu .evart-body {
           display: flex;
           flex-flow: column wrap;
@@ -433,5 +441,51 @@ nav {
               padding: 0 3%; }
       nav ul li:hover > .evart-submenu {
         display: block; }
+
+.evart-about {
+  display: flex;
+  padding: 5% 15%;
+  flex-flow: column nowrap;
+  font-family: 'Roboto-Thin';
+  color: #707070;
+  font-size: 42px;
+  line-height: 45px; }
+  .evart-about .evart-title {
+    text-transform: capitalize; }
+  .evart-about .evart-description {
+    color: #00bfff;
+    text-transform: uppercase; }
+  .evart-about .evart-text {
+    padding: 1% 10%;
+    font-size: 24px;
+    line-height: 30px; }
+
+.evart-slider .carousel-inner .item {
+  height: 100vh; }
+  .evart-slider .carousel-inner .item img {
+    width: 100%; }
+
+.evart-slider .carousel-inner .carousel-caption {
+  right: 0;
+  left: 0;
+  font-size: 5em; }
+  .evart-slider .carousel-inner .carousel-caption h3 {
+    font-size: 1em;
+    text-transform: capitalize; }
+  .evart-slider .carousel-inner .carousel-caption p {
+    font-size: 0.8em;
+    text-transform: uppercase; }
+
+.evart-slider .left-arrow, .evart-slider .right-arrow {
+  background: url(../img/slider/arrow.png);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.evart-slider .right-arrow {
+  transform: rotate(180deg); }
+
+.evart-slider .carousel-control {
+  width: 30%; }
 
 /*# sourceMappingURL=main.css.map */

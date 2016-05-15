@@ -7,7 +7,6 @@ nav {
   background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
   height: 47px;
-  border: 1px solid #f3f3f3;
   ul{
     margin: 0;
     li{
@@ -18,7 +17,7 @@ nav {
         color: #9b9b9b;
         &:hover{
           color: #9b9b9b;
-          background: linear-gradient(to bottom, #ffffff 50%, #EFEFEF 50%);
+          background: linear-gradient(to bottom, #ffffff 50%, #f2f2f2 50%);
         }
         &:active, &:focus{
           background: linear-gradient(to bottom, #02afe7 40%, #12bef7 75%);
@@ -64,6 +63,9 @@ nav {
               width: 31px;
               height: 41px;
               background: url(../img/audio.png);
+            }
+            &:hover .ico{
+              background: url(../img/audio-active.png);
             }
           }
         }
@@ -130,6 +132,66 @@ nav {
         display:block;
       }
     }
+  }
+
+}
+
+
+.evart-about{
+  display: flex;
+  padding: 5% 15%;
+  flex-flow: column nowrap;
+  font-family: 'Roboto-Thin';
+  color: #707070;
+  font-size: 42px;
+  line-height: 45px;
+  .evart-title{
+    text-transform: capitalize;
+  }
+  .evart-description{
+    color: #00bfff;
+    text-transform: uppercase;
+  }
+  .evart-text{
+    padding: 1% 10%;
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+.evart-slider{
+  .carousel-inner{
+    .item{
+      height: 100vh;
+      img{
+        width: 100%;
+      }
+    }
+
+    .carousel-caption{
+      right: 0;
+      left: 0;
+      font-size: 5em;
+      h3{
+        font-size: 1em;
+        text-transform: capitalize;
+      }
+      p{
+        font-size: 0.8em;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .left-arrow, .right-arrow{
+    background: url(../img/slider/arrow.png);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .right-arrow{
+    transform: rotate(180deg);
+  }
+  .carousel-control{
+    width: 30%;
   }
 
 }

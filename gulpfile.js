@@ -32,9 +32,15 @@ var gulp = require('gulp'),
  *******************************************************************/
 
 //Copy All Dependencies
-gulp.task('cpy-dependencies', function () {
+gulp.task('cpy-dependencies', ['cpy-bootstrap-fonts'], function () {
     return gulp.src(dir.dependencies, { cwd: dir.src, base: dir.src})
         .pipe(gulp.dest(dir.release))
+});
+
+//Copy All Dependencies
+gulp.task('cpy-bootstrap-fonts', function () {
+    return gulp.src("./bower_components//bootstrap/dist/fonts/**")
+        .pipe(gulp.dest(dir.release + dir.styles.css + "fonts"))
 });
 
 //Clean Folder Before Build
