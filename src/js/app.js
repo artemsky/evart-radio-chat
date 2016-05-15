@@ -40,40 +40,46 @@ $(document).ready(function () {
         }
     });
 
-    var playlistRange = $('.evart-playlist .content-list').prop('scrollHeight');
-    $('.evart-playlist input[type="range"]').rangeslider({
-
-        // Feature detection the default is `true`.
-        // Set this to `false` if you want to use
-        // the polyfill also in Browsers which support
-        // the native <input type="range"> element.
-        polyfill: false,
-
-        // Default CSS classes
-        rangeClass: 'playlist-rangeslider',
-        disabledClass: 'playlist-rangeslider--disabled',
-        horizontalClass: 'playlist-rangeslider--horizontal',
-        verticalClass: 'playlist-rangeslider--vertical',
-        fillClass: 'playlist-rangeslider__fill',
-        handleClass: 'playlist-rangeslider__handle',
-
-        // Callback function
-        onInit: function() {
-
-            playlistRange = playlistRange - $(this)[0].maxHandlePos;
+    $(".evart-playlist .list-unstyled").customScrollbar({fixedThumbHeight: 14, fixedThumbWidth: 18});
 
 
-        },
+    $(".evart-submenu .list-unstyled").customScrollbar({
+        updateOnWindowResize:true,
+        fixedThumbHeight: 18, 
+        fixedThumbWidth: 8
+    });
+    
+    $(".evart-submenu").css({
+        display: "none",
+        visibility: "visible"
+    });
 
-        // Callback function
-        onSlide: function(position, value) {
-             $('.evart-playlist .content-list').css("transform", "translate(0, " + (-(playlistRange/100 * (100-value))) + "px)");
-        },
+    var audioMenu = false;
+    $("nav li > a:eq(1), .evart-submenu").focus(function(){
+            audioMenu = true;
 
-        // Callback function
-        onSlideEnd: function(position, value) {
+        $(".evart-submenu").css({
+            display: "block"
+        });
+    });
 
-        }
+    $("nav li > a:eq(1), .evart-submenu").blur(function(){
+        audioMenu = false;
+        $(".evart-submenu").css({
+            display: "none"
+        });
+    });
+    
+    
+    $("nav li > a:eq(1), .evart-submenu").hover(function(){
+        $(".evart-submenu").css({
+            display: "block"
+        });
+    }, function(){
+        if(!audioMenu)
+            $(".evart-submenu").css({
+                display: "none"
+            });
     });
 
     $("nav ul a").click(function(e){

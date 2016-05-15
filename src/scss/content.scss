@@ -35,6 +35,8 @@ nav {
         height: 600px;
         border-radius: 10px;
         top: 44px;
+        visibility: hidden;
+        z-index: 9999;
         .evart-head{
           display: flex;
           justify-content: center;
@@ -67,8 +69,25 @@ nav {
         }
         .evart-body{
           display: flex;
-          align-items: center;
           flex-flow: column wrap;
+          max-width: 694px;
+          height: 500px;
+          position: relative;
+          @import "playlist-track";
+          .thumb{
+            width: 8px !important;
+            height: 18px !important;
+            left: -2px !important;
+          }
+          ul{
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1%;
+            right: 5%;
+
+          }
           .evart-item{
             display: flex;
             align-items: center;
@@ -102,9 +121,13 @@ nav {
               justify-content: center;
               align-items: center;
               font-size: 12px;
+              padding: 0 3%;
             }
           }
         }
+      }
+      &:hover > .evart-submenu{
+        display:block;
       }
     }
   }

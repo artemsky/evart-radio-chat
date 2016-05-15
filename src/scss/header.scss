@@ -186,6 +186,7 @@ header{
         display: flex;
         flex-flow: column wrap;
         color: #fff;
+        @import "playlist-track";
         &:before{
           content: '';
           background: linear-gradient(to top, #ffffff 5%, #494949 50%, #ffffff 52%, #d9d9d9 100%);
@@ -214,7 +215,6 @@ header{
         bottom: -5px;
         left: 10px;
         right: 2px;
-        overflow: hidden;
         .evart-item{
           font-size: 18px;
           display: flex;
@@ -248,13 +248,6 @@ header{
               }
             }
         }
-      }
-      .evart-control{
-        position: absolute;
-        right: -28px;
-        width: 4px;
-        height: 100%;
-        @import "playlist-track";
       }
 
     }
