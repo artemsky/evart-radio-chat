@@ -8,17 +8,25 @@ header{
     background-size: contain;
     height: 535px;
     padding-top: 75px;
+    @media only screen and (max-width: 976px) {
+        padding-top: 0;
+        background-size: cover;
+    }
 }
 .evart-radio{
-    background: url(../img/radio_back.png);
+    background: linear-gradient(to bottom, rgba(244,244,244,1) 0%, rgba(229,229,229,1) 100%);
     width: 100%;
     height: 403px;
     border-radius: 10px;
-    box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.004);
+    box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(212, 212, 212, 0.65);
     display: flex;
     padding: 0 10px;
 
+    @media only screen and (max-width: 976px) {
+        flex-flow: column nowrap;
+        height: 500px;
+    }
     .evart-dock{
         height: 100%;
         display: flex;
@@ -82,18 +90,20 @@ header{
                 align-items: center;
                 padding-left: 60px;
                 margin-top: 3%;
+                @media only screen and (max-width: 976px) {
+                    flex:1;
+                }
                 .evart-song{
                     background-image: url(../img/play.png);
                     background-repeat: no-repeat;
                     background-position: left;
-                    background-size: contain;
                     padding-left: 40px;
                     width: 100%;
-                    flex: 8;
+                    flex: 6;
                 }
                 .evart-time{
-                    padding-left: 20%;
                     flex: 2;
+                    text-align: center;
                 }
             }
         }
@@ -105,6 +115,11 @@ header{
             flex-flow: column nowrap;
             justify-content: center;
             align-items: center;
+            @media only screen and (max-width: 976px) {
+              flex: 3;
+              padding-top: 3%;
+            }
+                
             .evart-buttons{
               position: relative;
                 display: flex;
@@ -187,6 +202,13 @@ header{
         flex-flow: column wrap;
         color: #fff;
         @import "playlist-track";
+        @media only screen and (max-width: 976px) {
+          flex: 0 0 135px;
+          margin-bottom: 10px;
+          margin-left: 0;
+          margin-right: 0;
+          width: 98%;
+        }
         &:before{
           content: '';
           background: linear-gradient(to top, #ffffff 5%, #494949 50%, #ffffff 52%, #d9d9d9 100%);
@@ -207,6 +229,9 @@ header{
           border-radius: 10px;
           background-image: url(../img/playlist.png);
           background-size: cover;
+          @media only screen and (max-width: 976px) {
+              background-position: center;
+          }
         }
       ul{
         z-index: 1;
@@ -215,6 +240,12 @@ header{
         bottom: -5px;
         left: 10px;
         right: 2px;
+        @media only screen and (max-width: 976px) {
+          right: 5px;
+          .overview{
+              width: 100%;
+          }
+        }
         .evart-item{
           font-size: 18px;
           display: flex;

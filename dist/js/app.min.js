@@ -40,7 +40,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".evart-playlist .list-unstyled").customScrollbar({fixedThumbHeight: 14, fixedThumbWidth: 18});
+    $(".evart-playlist .list-unstyled").customScrollbar({updateOnWindowResize:true, fixedThumbHeight: 14, fixedThumbWidth: 18});
 
 
     $(".evart-submenu .list-unstyled").customScrollbar({

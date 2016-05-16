@@ -73,16 +73,23 @@ header {
   background-size: contain;
   height: 535px;
   padding-top: 75px; }
+  @media only screen and (max-width: 976px) {
+    header {
+      padding-top: 0; } }
 
 .evart-radio {
-  background: url(../img/radio_back.png);
+  background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%);
   width: 100%;
   height: 403px;
   border-radius: 10px;
-  box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.004);
+  box-shadow: inset 0px 2px 0px 0px rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(212, 212, 212, 0.65);
   display: flex;
   padding: 0 10px; }
+  @media only screen and (max-width: 976px) {
+    .evart-radio {
+      flex-flow: column nowrap;
+      height: 500px; } }
   .evart-radio .evart-dock {
     height: 100%;
     display: flex;
@@ -139,17 +146,19 @@ header {
         align-items: center;
         padding-left: 60px;
         margin-top: 3%; }
+        @media only screen and (max-width: 976px) {
+          .evart-radio .evart-panel .evart-display .evart-now-playing {
+            flex: 1; } }
         .evart-radio .evart-panel .evart-display .evart-now-playing .evart-song {
           background-image: url(../img/play.png);
           background-repeat: no-repeat;
           background-position: left;
-          background-size: contain;
           padding-left: 40px;
           width: 100%;
-          flex: 8; }
+          flex: 6; }
         .evart-radio .evart-panel .evart-display .evart-now-playing .evart-time {
-          padding-left: 20%;
-          flex: 2; }
+          flex: 2;
+          text-align: center; }
     .evart-radio .evart-panel .evart-controls {
       width: 100%;
       flex: 4;
@@ -157,6 +166,10 @@ header {
       flex-flow: column nowrap;
       justify-content: center;
       align-items: center; }
+      @media only screen and (max-width: 976px) {
+        .evart-radio .evart-panel .evart-controls {
+          flex: 3;
+          padding-top: 3%; } }
       .evart-radio .evart-panel .evart-controls .evart-buttons {
         position: relative;
         display: flex;
@@ -259,6 +272,13 @@ header {
         position: relative;
         left: -7px;
         cursor: pointer; }
+    @media only screen and (max-width: 976px) {
+      .evart-radio .evart-playlist {
+        flex: 0 0 135px;
+        margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 98%; } }
     .evart-radio .evart-playlist:before {
       content: '';
       background: linear-gradient(to top, #ffffff 5%, #494949 50%, #ffffff 52%, #d9d9d9 100%);
@@ -278,6 +298,9 @@ header {
       border-radius: 10px;
       background-image: url(../img/playlist.png);
       background-size: cover; }
+      @media only screen and (max-width: 976px) {
+        .evart-radio .evart-playlist:after {
+          background-position: center; } }
     .evart-radio .evart-playlist ul {
       z-index: 1;
       position: absolute;
@@ -285,6 +308,11 @@ header {
       bottom: -5px;
       left: 10px;
       right: 2px; }
+      @media only screen and (max-width: 976px) {
+        .evart-radio .evart-playlist ul {
+          right: 5px; }
+          .evart-radio .evart-playlist ul .overview {
+            width: 100%; } }
       .evart-radio .evart-playlist ul .evart-item {
         font-size: 18px;
         display: flex;
