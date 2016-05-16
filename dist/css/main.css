@@ -35,8 +35,8 @@
 
 @font-face {
   font-family: 'Panton-Bold';
-  src: url("Panton-Bold.eot");
-  src: url("Panton-Bold.woff2") format("woff2"), url("Panton-Bold.woff") format("woff"), url("Panton-Bold.ttf") format("truetype"), url("Panton-Bold.svg#Panton-Bold") format("svg"), url("Panton-Bold.eot?#iefix") format("embedded-opentype");
+  src: url("fonts/Panton/Panton-Bold.eot");
+  src: url("fonts/Panton/Panton-Bold.woff2") format("woff2"), url("fonts/Panton/Panton-Bold.woff") format("woff"), url("fonts/Panton/Panton-Bold.ttf") format("truetype"), url("fonts/Panton/Panton-Bold.svg#Panton-Bold") format("svg"), url("fonts/Panton/Panton-Bold.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal; }
 
@@ -128,6 +128,8 @@ header {
     display: flex;
     flex-flow: column wrap;
     align-items: center; }
+  .evart-radio .evart-ico {
+    cursor: pointer; }
   .evart-radio .evart-panel {
     flex: 7; }
     .evart-radio .evart-panel .evart-dots {
@@ -212,33 +214,38 @@ header {
         height: 40px;
         justify-content: space-around;
         align-items: center; }
-        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play {
+        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn {
           flex: 0 0 90px;
-          height: 40px;
-          background-image: url(../img/btn-play.png);
-          background-repeat: no-repeat;
-          background-position: center; }
-          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play:hover {
-            background-image: url(../img/btn-play_hover.png); }
-          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-play:active {
-            background-image: url(../img/btn-play_active.png); }
-        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-pause {
-          flex: 0 0 90px;
-          height: 40px;
-          background-image: url(../img/btn-pause.png);
-          background-repeat: no-repeat;
-          background-position: center; }
+          height: 38px;
+          background-image: url(../img/btn-simple.png);
+          background-repeat: no-repeat; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn:hover {
+            background-position: 0 -38px; }
+            .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn:hover span {
+              color: #0095c6; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn:active {
+            background-position: 0 -76px; }
+            .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn:active span {
+              color: #9ca1a5; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-btn span {
+            padding: 13px 27px;
+            font-size: 10px;
+            color: #9ca1a5;
+            text-shadow: 0px 1px 2px white; }
+        .evart-radio .evart-panel .evart-controls .evart-buttons .evart-pause span {
+          padding-left: 47px; }
         .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop {
-          height: 63px;
+          height: 64px;
           width: 63px;
-          background-image: url(../img/btn-off.png);
+          background-image: url(../img/btn-power.png);
           background-repeat: no-repeat;
-          background-position: center;
           position: absolute;
           left: 57px;
           top: -10px; }
           .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop:hover {
-            background-image: url(../img/btn-off_hover.png); }
+            background-position: -63px 0; }
+          .evart-radio .evart-panel .evart-controls .evart-buttons .evart-stop:active {
+            background-position: -126px 0; }
       .evart-radio .evart-panel .evart-controls .evart-volume {
         width: 270px;
         height: 19px;
@@ -275,7 +282,10 @@ header {
           background-position: left center; }
         .evart-radio .evart-panel .evart-controls .evart-volume .evart-value {
           flex: 0 0 50px;
-          text-align: right; }
+          text-align: right;
+          font-family: "Roboto-Bold";
+          font-size: 15px;
+          color: #3c3c3c; }
   .evart-radio .evart-playlist {
     margin-top: 18px;
     margin-left: 1%;
@@ -381,7 +391,7 @@ header {
   justify-content: center; }
 
 nav {
-  background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
+  background: linear-gradient(to bottom, #EFEFEF 40%, #ebebeb 60%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
   height: 47px; }
   nav ul {
@@ -396,43 +406,51 @@ nav {
         line-height: 27px;
         font-family: "Roboto-Medium";
         text-transform: uppercase;
-        border: 1px solid #e1e1e1;
-        border-right: none; }
+        border: 1px solid #E6E6E6;
+        border-right: none;
+        text-shadow: 0px 1px 0px white;
+        padding: 10px 35px !important; }
         nav ul li a:hover {
           color: #9b9b9b;
-          background: linear-gradient(to bottom, #ffffff 50%, #f2f2f2 50%); }
+          background: linear-gradient(to bottom, #ffffff 40%, #f2f2f2 60%);
+          text-shadow: none; }
         nav ul li a:active, nav ul li a:focus {
           background: linear-gradient(to bottom, #02afe7 40%, #12bef7 75%);
-          box-shadow: inset 0px 2px 0px 0px #0095c6; }
+          box-shadow: inset 0px 2px 0px 0px #0095c6;
+          text-shadow: none; }
         nav ul li a:focus {
           color: #fff; }
       nav ul li .evart-hamburger {
         padding: 10px 25px; }
       nav ul li .evart-off-btn {
-        background: url(../img/btn-off-large.png);
-        height: 88px;
-        width: 88px;
+        background: url(../img/btn-power-big.png);
+        height: 86px;
+        width: 86px;
         display: block;
         position: relative;
         z-index: 50;
         top: -20px;
         left: -10px; }
+        nav ul li .evart-off-btn:hover {
+          background-position: -86px 0px; }
+        nav ul li .evart-off-btn:active {
+          background-position: -172px 0px; }
       nav ul li:first-child a {
-        border: 1px solid #e1e1e1;
+        border: 1px solid #E6E6E6;
         border-radius: 5px 0 0 5px; }
       nav ul li:nth-last-child(3) a {
-        border: 1px solid #e1e1e1;
+        border: 1px solid #E6E6E6;
         border-radius: 0 5px 5px 0; }
       nav ul li:nth-last-of-type(-n+2) a {
         border: none; }
       nav ul li .evart-submenu {
-        background: #f3f3f3;
+        background: #E6E6E6;
         position: absolute;
         width: 694px;
         height: 600px;
         border-radius: 10px;
         top: 44px;
-        visibility: hidden;
+        display: none;
         z-index: 9999; }
         nav ul li .evart-submenu .evart-head {
           display: flex;
@@ -510,8 +528,10 @@ nav {
               background: url(../img/dwl.png);
               flex: 0 0 17px;
               height: 15px;
-              margin: 5px; }
+              margin: 5px;
+              cursor: pointer; }
             nav ul li .evart-submenu .evart-body .evart-item .evart-play {
+              cursor: pointer;
               background: url(../img/play-gray.png);
               flex: 0 0 16px;
               height: 16px;
@@ -538,6 +558,152 @@ nav {
               padding: 0 3%; }
       nav ul li:hover > .evart-submenu {
         display: block; }
+      nav ul li .evart-chat {
+        background: #E6E6E6;
+        position: absolute;
+        width: 580px;
+        height: 600px;
+        border-radius: 10px;
+        top: 45px;
+        right: 0;
+        display: none;
+        z-index: 9999;
+        flex-flow: column wrap; }
+        nav ul li .evart-chat .evart-head {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: 0 0 76px;
+          border-bottom: 1px solid #bfbfbf;
+          border-radius: 0 0 11px 0; }
+          nav ul li .evart-chat .evart-head .evart-name {
+            flex: 9;
+            text-align: center;
+            color: #929292;
+            font-size: 24px;
+            font-family: "Roboto Light"; }
+          nav ul li .evart-chat .evart-head .evart-ico {
+            border-radius: 0 10px 10px 0;
+            box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
+            border: 1px solid #E0DCDC;
+            flex: 1;
+            align-self: stretch;
+            background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #9b9b9b;
+            text-shadow: 0px 1px 0px white; }
+            nav ul li .evart-chat .evart-head .evart-ico .ico {
+              justify-content: center;
+              margin: auto;
+              width: 31px;
+              height: 41px;
+              background: url(../img/audio.png); }
+            nav ul li .evart-chat .evart-head .evart-ico:hover .ico {
+              background: url(../img/audio-active.png); }
+        nav ul li .evart-chat .evart-body {
+          display: flex;
+          flex-flow: column wrap;
+          max-width: 580px;
+          height: 410px;
+          position: relative;
+          flex: 11; }
+          nav ul li .evart-chat .evart-body .scrollable .vertical {
+            width: 4px;
+            z-index: 2;
+            background: #bebebe;
+            border-radius: 20px;
+            right: -25px; }
+            nav ul li .evart-chat .evart-body .scrollable .vertical .thumb {
+              border: 1px solid #dbdbdb;
+              border-radius: 4px;
+              background-image: -moz-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+              background-image: -webkit-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+              background-image: -ms-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+              box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.7);
+              width: 18px;
+              height: 14px;
+              position: relative;
+              left: -7px;
+              cursor: pointer; }
+          nav ul li .evart-chat .evart-body .thumb {
+            width: 8px !important;
+            height: 18px !important;
+            left: -2px !important; }
+          nav ul li .evart-chat .evart-body ul {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1%;
+            right: 5%; }
+          nav ul li .evart-chat .evart-body .evart-item {
+            display: flex;
+            padding: 10px 0; }
+            nav ul li .evart-chat .evart-body .evart-item .evart-info {
+              font-family: "Panton-Bold";
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: center;
+              align-items: center;
+              padding: 5px 25px; }
+              nav ul li .evart-chat .evart-body .evart-item .evart-info .evart-name {
+                text-align: center;
+                font-size: 16px;
+                color: #585858; }
+              nav ul li .evart-chat .evart-body .evart-item .evart-info .evart-time {
+                font-size: 11px;
+                color: #828282; }
+            nav ul li .evart-chat .evart-body .evart-item .evart-msg {
+              color: #303030;
+              font-family: 'Roboto-Light';
+              font-size: 16px; }
+        nav ul li .evart-chat .evart-footer {
+          display: flex;
+          flex-flow: column nowrap;
+          flex: 3;
+          position: relative; }
+          nav ul li .evart-chat .evart-footer textarea {
+            resize: none;
+            font-family: "Roboto-Light";
+            font-size: 16px;
+            color: #727272;
+            padding-left: 50px;
+            border: none;
+            border-top: 1px solid #C5C5C5;
+            height: 70px;
+            padding-top: 4%; }
+          nav ul li .evart-chat .evart-footer .evart-send {
+            background: url(../img/btn-send.png);
+            height: 41px;
+            border-radius: 10px;
+            font-family: "Panton-Bold";
+            font-size: 16px;
+            text-align: center;
+            line-height: 42px; }
+            nav ul li .evart-chat .evart-footer .evart-send:hover {
+              background-position: 0 -41px; }
+            nav ul li .evart-chat .evart-footer .evart-send:active {
+              background-position: 0 -82px; }
+          nav ul li .evart-chat .evart-footer .evart-attach {
+            background: url(../img/attach.png);
+            width: 14px;
+            height: 24px;
+            position: absolute;
+            top: 25px;
+            left: 20px; }
+          nav ul li .evart-chat .evart-footer .evart-emo {
+            background: url(../img/emo.png);
+            width: 22px;
+            height: 21px;
+            position: absolute;
+            top: 25px;
+            right: 20px; }
+      nav ul li:hover > .evart-chat {
+        display: flex; }
 
 .evart-about {
   display: flex;
@@ -574,7 +740,12 @@ nav {
   .evart-slider .carousel-inner .item .evart-image {
     width: 100vw;
     height: 95vh;
-    background-size: cover; }
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .evart-slider .carousel-inner .item .evart-image .evart-video-container {
+      height: 80%; }
 
 .evart-slider .carousel-inner .carousel-caption {
   right: 0;
@@ -617,6 +788,17 @@ nav {
     padding-top: 3%; }
   #evart-partners .evart-logos {
     padding-bottom: 3%; }
+
+#evart-business-mlm .carousel-caption {
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0; }
+  #evart-business-mlm .carousel-caption h3 {
+    text-transform: uppercase;
+    line-height: 25px;
+    padding-top: 10px; }
+  #evart-business-mlm .carousel-caption p {
+    text-transform: none; }
 
 #evart-videos .carousel-indicators {
   bottom: 100px; }

@@ -4,7 +4,7 @@
 }
 
 nav {
-  background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
+  background: linear-gradient(to bottom, #EFEFEF 40%, #ebebeb 60%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
   height: 47px;
   ul{
@@ -19,15 +19,22 @@ nav {
         line-height: 27px;
         font-family: "Roboto-Medium";
         text-transform: uppercase;
-        border: 1px solid #e1e1e1;
+        border: 1px solid #E6E6E6;
         border-right: none;
+        text-shadow: 0px 1px 0px rgb(255, 255, 255);
+        padding: 10px 35px !important;
+
+
+
         &:hover{
           color: #9b9b9b;
-          background: linear-gradient(to bottom, #ffffff 50%, #f2f2f2 50%);
+          background: linear-gradient(to bottom, #ffffff 40%, #f2f2f2 60%);
+          text-shadow: none;
         }
         &:active, &:focus{
           background: linear-gradient(to bottom, #02afe7 40%, #12bef7 75%);
           box-shadow: inset 0px 2px 0px 0px rgba(0, 149, 198, 1);
+          text-shadow: none;
         }
         &:focus{
           color: #fff;
@@ -37,36 +44,42 @@ nav {
         padding: 10px 25px;
       }
       .evart-off-btn{
-        background: url(../img/btn-off-large.png);
-        height: 88px;
-        width: 88px;
+        background: url(../img/btn-power-big.png);
+        height: 86px;
+        width: 86px;
         display: block;
         position: relative;
         z-index: 50;
         top: -20px;
         left: -10px;
+        &:hover{
+          background-position: -86px 0px;
+        }
+        &:active{
+          background-position: -172px 0px;
+        }
       }
 
 
       &:first-child a{
-        border: 1px solid #e1e1e1;
+        border: 1px solid #E6E6E6;
         border-radius: 5px 0 0 5px;
       }
       &:nth-last-child(3) a{
-        border: 1px solid #e1e1e1;
+        border: 1px solid #E6E6E6;
         border-radius: 0 5px 5px 0;
       }
       &:nth-last-of-type(-n+2) a{
         border: none;
       }
       .evart-submenu{
-        background: #f3f3f3;
+        background: #E6E6E6;
         position: absolute;
         width: 694px;
         height: 600px;
         border-radius: 10px;
         top: 44px;
-        visibility: hidden;
+        display: none;
         z-index: 9999;
         .evart-head{
           display: flex;
@@ -136,8 +149,10 @@ nav {
               flex: 0 0 17px;
               height: 15px;
               margin: 5px;
+              cursor: pointer;
             }
             .evart-play{
+              cursor: pointer;
               background: url(../img/play-gray.png);
               flex: 0 0 16px;
               height: 16px;
@@ -172,6 +187,161 @@ nav {
       }
       &:hover > .evart-submenu{
         display:block;
+      }
+      .evart-chat{
+        background: #E6E6E6;
+        position: absolute;
+        width: 580px;
+        height: 600px;
+        border-radius: 10px;
+        top: 45px;
+        right: 0;
+        display: none;
+        z-index: 9999;
+        flex-flow: column wrap;
+        .evart-head{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex:0 0 76px;
+          border-bottom: 1px solid #bfbfbf;
+          border-radius: 0 0 11px 0;
+          .evart-name{
+            flex: 9;
+            text-align: center;
+            color: #929292;
+            font-size: 24px;
+            font-family: "Roboto Light";
+          }
+          .evart-ico{
+            border-radius: 0 10px 10px 0;
+            box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
+            border: 1px solid #E0DCDC;
+            flex: 1;
+            align-self: stretch;
+            background: linear-gradient(to bottom, #EFEFEF 50%, #ebebeb 50%);
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #9b9b9b;
+            text-shadow: 0px 1px 0px white;
+            .ico{
+              justify-content: center;
+              margin: auto;
+              width: 31px;
+              height: 41px;
+              background: url(../img/audio.png);
+            }
+            &:hover .ico{
+              background: url(../img/audio-active.png);
+            }
+          }
+        }
+
+        .evart-body{
+          display: flex;
+          flex-flow: column wrap;
+          max-width: 580px;
+          height: 410px;
+          position: relative;
+          flex: 11;
+          @import "playlist-track";
+          .thumb{
+            width: 8px !important;
+            height: 18px !important;
+            left: -2px !important;
+          }
+          ul{
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1%;
+            right: 5%;
+          }
+          .evart-item{
+            display: flex;
+            padding: 10px 0;
+            .evart-info{
+              font-family: "Panton-Bold";
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: center;
+              align-items: center;
+              padding: 5px 25px;
+              .evart-name{
+                text-align: center;
+                font-size: 16px;
+                color: #585858;
+              }
+              .evart-time{
+                font-size: 11px;
+                color: #828282;
+              }
+            }
+            .evart-msg{
+              color: #303030;
+              font-family: 'Roboto-Light';
+              font-size: 16px;
+            }
+          }
+        }
+
+        .evart-footer{
+          display: flex;
+          flex-flow: column nowrap;
+          flex: 3;
+          position: relative;
+          textarea{
+            resize: none;
+            font-family: "Roboto-Light";
+            font-size: 16px;
+            color: #727272;
+            padding-left: 50px;
+            border: none;
+            border-top: 1px solid #C5C5C5;
+            height: 70px;
+            padding-top: 4%;
+          }
+          .evart-send{
+            background: url(../img/btn-send.png);
+            height: 41px;
+            border-radius: 10px;
+            font-family: "Panton-Bold";
+            font-size: 16px;
+            text-align: center;
+            line-height: 42px;
+
+            &:hover{
+              background-position: 0 -41px
+            }
+            &:active{
+              background-position: 0 -82px
+            }
+          }
+          .evart-attach{
+            background: url(../img/attach.png);
+            width: 14px;
+            height: 24px;
+            position: absolute;
+            top: 25px;
+            left: 20px;
+          }
+          .evart-emo{
+            background: url(../img/emo.png);
+            width: 22px;
+            height: 21px;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+          }
+        }
+      }
+
+      &:hover > .evart-chat{
+        display:flex;
       }
     }
   }
@@ -225,7 +395,13 @@ nav {
       .evart-image{
         width: 100vw;
         height: 95vh;
-        background-size: cover
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .evart-video-container{
+          height: 80%;
+        }
       }
     }
 
@@ -277,6 +453,22 @@ nav {
   }
   .evart-logos{
     padding-bottom: 3%
+  }
+}
+
+#evart-business-mlm{
+  .carousel-caption{
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    padding: 0;
+    h3{
+      text-transform: uppercase;
+      line-height: 25px;
+      padding-top: 10px;
+    }
+    p{
+      text-transform: none;
+    }
   }
 }
 

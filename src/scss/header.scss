@@ -34,6 +34,9 @@ header{
         align-items: center;
 
     }
+  .evart-ico{
+    cursor: pointer;
+  }
     .evart-panel{
        flex: 7;
         .evart-dots{
@@ -129,38 +132,47 @@ header{
                 height: 40px;
                 justify-content: space-around;
                 align-items: center;
-                .evart-play{
-                    flex: 0 0 90px;
-                    height: 40px;
-                    background-image: url(../img/btn-play.png);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                  &:hover{
-                    background-image: url(../img/btn-play_hover.png);
-                  }
-                  &:active{
-                    background-image: url(../img/btn-play_active.png);
+              .evart-btn{
+                flex: 0 0 90px;
+                height: 38px;
+                background-image: url(../img/btn-simple.png);
+                background-repeat: no-repeat;
+                &:hover{
+                  background-position: 0 -38px;
+                  span{
+                    color:#0095c6;
                   }
                 }
-                .evart-pause{
-                    flex: 0 0 90px;
-                    height: 40px;
-                    background-image: url(../img/btn-pause.png);
-                    background-repeat: no-repeat;
-                    background-position: center;
+                &:active{
+                  background-position: 0 -76px;
+                  span{
+                    color:#9ca1a5;
+                  }
+                }
+                span {
+                  padding: 13px 27px;
+                  font-size: 10px;
+                  color: #9ca1a5;
+                  text-shadow: 0px 1px 2px rgb(255, 255, 255);
+                }
 
-                }
+              }
+              .evart-pause span{
+                padding-left: 47px;
+              }
                 .evart-stop{
-                  height: 63px;
+                  height: 64px;
                   width: 63px;
-                  background-image: url(../img/btn-off.png);
+                  background-image: url(../img/btn-power.png);
                   background-repeat: no-repeat;
-                  background-position: center;
                   position: absolute;
                   left: 57px;
                   top: -10px;
                   &:hover{
-                    background-image: url(../img/btn-off_hover.png);
+                    background-position: -63px 0;
+                  }
+                  &:active{
+                    background-position: -126px 0;
                   }
                 }
             }
@@ -185,6 +197,9 @@ header{
             .evart-value{
               flex: 0 0 50px;
               text-align: right;
+              font-family: "Roboto-Bold";
+              font-size: 15px;
+              color: #3c3c3c;
             }
           }
         }

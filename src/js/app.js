@@ -39,48 +39,36 @@ $(document).ready(function () {
 
         }
     });
+    
+    
 
     $(".evart-playlist .list-unstyled").customScrollbar({updateOnWindowResize:true, fixedThumbHeight: 14, fixedThumbWidth: 18});
 
+    $(".evart-submenu").css({
+        display: "block",
+        visibility: "hidden"
+    });
+
+    $(".evart-chat").css({
+        display: "block",
+        visibility: "hidden"
+    });
 
     $(".evart-submenu .list-unstyled").customScrollbar({
         updateOnWindowResize:true,
         fixedThumbHeight: 18, 
         fixedThumbWidth: 8
     });
-    
-    $(".evart-submenu").css({
-        display: "none",
-        visibility: "visible"
+
+    $(".evart-chat .list-unstyled").customScrollbar({
+        updateOnWindowResize:true,
+        fixedThumbHeight: 18,
+        fixedThumbWidth: 8
     });
 
-    var audioMenu = false;
-    $("nav li > a:eq(1), .evart-submenu").focus(function(){
-            audioMenu = true;
+    $(".evart-submenu").removeAttr( 'style' );
+    $(".evart-chat").removeAttr( 'style' );
 
-        $(".evart-submenu").css({
-            display: "block"
-        });
-    });
-
-    $("nav li > a:eq(1), .evart-submenu").blur(function(){
-        audioMenu = false;
-        $(".evart-submenu").css({
-            display: "none"
-        });
-    });
-    
-    
-    $("nav li > a:eq(1), .evart-submenu").hover(function(){
-        $(".evart-submenu").css({
-            display: "block"
-        });
-    }, function(){
-        if(!audioMenu)
-            $(".evart-submenu").css({
-                display: "none"
-            });
-    });
 
     $("nav ul a").click(function(e){
         e.preventDefault();
