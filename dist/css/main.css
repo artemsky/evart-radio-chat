@@ -5,11 +5,43 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url("fonts/Roboto/Roboto-Medium.eot");
+  src: url("fonts/Roboto/Roboto-Medium.woff2") format("woff2"), url("fonts/Roboto/Roboto-Medium.woff") format("woff"), url("fonts/Roboto/Roboto-Medium.ttf") format("truetype"), url("fonts/Roboto/Roboto-Medium.svg#Roboto-Medium") format("svg"), url("fonts/Roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url("fonts/Roboto/Roboto-Light.eot");
+  src: url("fonts/Roboto/Roboto-Light.woff2") format("woff2"), url("fonts/Roboto/Roboto-Light.woff") format("woff"), url("fonts/Roboto/Roboto-Light.ttf") format("truetype"), url("fonts/Roboto/Roboto-Light.svg#Roboto-Light") format("svg"), url("fonts/Roboto/Roboto-Light.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url("fonts/Roboto/Roboto-Bold.eot");
+  src: url("fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("fonts/Roboto/Roboto-Bold.woff") format("woff"), url("fonts/Roboto/Roboto-Bold.ttf") format("truetype"), url("fonts/Roboto/Roboto-Bold.svg#Roboto-Bold") format("svg"), url("fonts/Roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("fonts/Roboto/Roboto-Regular.eot");
+  src: url(fonts/Roboto/"Roboto-Regular.woff2") format("woff2"), url("fonts/Roboto/Roboto-Regular.woff") format("woff"), url("fonts/Roboto/Roboto-Regular.ttf") format("truetype"), url("fonts/Roboto/Roboto-Regular.svg#Roboto-Regular") format("svg"), url("fonts/Roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Panton-Bold';
+  src: url("Panton-Bold.eot");
+  src: url("Panton-Bold.woff2") format("woff2"), url("Panton-Bold.woff") format("woff"), url("Panton-Bold.ttf") format("truetype"), url("Panton-Bold.svg#Panton-Bold") format("svg"), url("Panton-Bold.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   background-color: #fff; }
-
-body {
-  min-height: 2000px; }
 
 .rangeslider,
 .rangeslider__fill, .sound-rangeslider__fill, .sound-rangeslider,
@@ -75,7 +107,8 @@ header {
   padding-top: 75px; }
   @media only screen and (max-width: 976px) {
     header {
-      padding-top: 0; } }
+      padding-top: 0;
+      background-size: cover; } }
 
 .evart-radio {
   background: linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%);
@@ -137,7 +170,8 @@ header {
         flex: 4; }
       .evart-radio .evart-panel .evart-display .evart-now-playing {
         color: #fff;
-        font-size: 20px;
+        font-family: "Roboto-Regular";
+        font-size: 24px;
         width: 100%;
         flex: 2;
         z-index: 1;
@@ -314,6 +348,7 @@ header {
           .evart-radio .evart-playlist ul .overview {
             width: 100%; } }
       .evart-radio .evart-playlist ul .evart-item {
+        font-family: "Roboto-Regular";
         font-size: 18px;
         display: flex;
         justify-content: center;
@@ -355,8 +390,14 @@ nav {
       float: left;
       position: relative; }
       nav ul li a {
-        height: 45px;
-        color: #9b9b9b; }
+        height: 47px;
+        color: #9b9b9b;
+        font-size: 15px;
+        line-height: 27px;
+        font-family: "Roboto-Medium";
+        text-transform: uppercase;
+        border: 1px solid #e1e1e1;
+        border-right: none; }
         nav ul li a:hover {
           color: #9b9b9b;
           background: linear-gradient(to bottom, #ffffff 50%, #f2f2f2 50%); }
@@ -365,6 +406,25 @@ nav {
           box-shadow: inset 0px 2px 0px 0px #0095c6; }
         nav ul li a:focus {
           color: #fff; }
+      nav ul li .evart-hamburger {
+        padding: 10px 25px; }
+      nav ul li .evart-off-btn {
+        background: url(../img/btn-off-large.png);
+        height: 88px;
+        width: 88px;
+        display: block;
+        position: relative;
+        z-index: 50;
+        top: -20px;
+        left: -10px; }
+      nav ul li:first-child a {
+        border: 1px solid #e1e1e1;
+        border-radius: 5px 0 0 5px; }
+      nav ul li:nth-last-child(3) a {
+        border: 1px solid #e1e1e1;
+        border-radius: 0 5px 5px 0; }
+      nav ul li:nth-last-of-type(-n+2) a {
+        border: none; }
       nav ul li .evart-submenu {
         background: #f3f3f3;
         position: absolute;
@@ -384,7 +444,9 @@ nav {
           nav ul li .evart-submenu .evart-head .evart-name {
             flex: 9;
             text-align: center;
-            color: #929292; }
+            color: #929292;
+            font-size: 24px;
+            font-family: "Roboto Light"; }
           nav ul li .evart-submenu .evart-head .evart-ico {
             border-radius: 0 10px 10px 0;
             box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
@@ -407,7 +469,8 @@ nav {
           flex-flow: column wrap;
           max-width: 694px;
           height: 500px;
-          position: relative; }
+          position: relative;
+          margin-top: 10px; }
           nav ul li .evart-submenu .evart-body .scrollable .vertical {
             width: 4px;
             z-index: 2;
@@ -455,17 +518,23 @@ nav {
               margin: 5px; }
             nav ul li .evart-submenu .evart-body .evart-item .evart-name {
               text-align: center;
-              color: #585858; }
+              color: #585858;
+              font-family: 'Panton-Bold';
+              font-size: 16px;
+              font-weight: bold; }
             nav ul li .evart-submenu .evart-body .evart-item .evart-info {
-              color: #000;
+              color: #303030;
+              font-family: 'Roboto-Light';
+              font-size: 16px;
               padding: 5px; }
             nav ul li .evart-submenu .evart-body .evart-item .evart-datetime {
+              font-family: 'Roboto-Medium';
               color: #5f5f5f;
               display: flex;
               flex-flow: column nowrap;
               justify-content: center;
               align-items: center;
-              font-size: 12px;
+              font-size: 11px;
               padding: 0 3%; }
       nav ul li:hover > .evart-submenu {
         display: block; }
@@ -488,14 +557,29 @@ nav {
     font-size: 24px;
     line-height: 30px; }
 
+.evart-slider .carousel-indicators {
+  bottom: -40px; }
+  .evart-slider .carousel-indicators li {
+    background: #e2e2e2;
+    border: none; }
+  .evart-slider .carousel-indicators li.active {
+    background: #00c0ff;
+    width: 6px;
+    height: 6px;
+    top: -3px;
+    position: relative; }
+
 .evart-slider .carousel-inner .item {
-  height: 100vh; }
-  .evart-slider .carousel-inner .item img {
-    width: 100%; }
+  height: 95vh; }
+  .evart-slider .carousel-inner .item .evart-image {
+    width: 100vw;
+    height: 95vh;
+    background-size: cover; }
 
 .evart-slider .carousel-inner .carousel-caption {
   right: 0;
   left: 0;
+  font-family: "Roboto-Regular";
   font-size: 5em; }
   .evart-slider .carousel-inner .carousel-caption h3 {
     font-size: 1em;
@@ -506,7 +590,7 @@ nav {
 
 .evart-slider .left-arrow, .evart-slider .right-arrow {
   background: url(../img/slider/arrow.png);
-  height: 100vh;
+  height: 95vh;
   background-position: center;
   background-repeat: no-repeat; }
 
@@ -515,5 +599,44 @@ nav {
 
 .evart-slider .carousel-control {
   width: 30%; }
+
+#evart-partners {
+  margin: 5% 0;
+  font-family: "Roboto-Light";
+  font-size: 48px;
+  background: url(../img/header_back.png);
+  background-size: cover;
+  color: #505050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap; }
+  #evart-partners .evart-name {
+    align-self: flex-start;
+    padding-left: 20%;
+    padding-top: 3%; }
+  #evart-partners .evart-logos {
+    padding-bottom: 3%; }
+
+#evart-videos .carousel-indicators {
+  bottom: 100px; }
+
+#evart-tech .item {
+  height: 70vh; }
+  #evart-tech .item .evart-image {
+    height: 70vh; }
+
+#evart-tech .left-arrow, #evart-tech .right-arrow {
+  height: 70vh; }
+
+footer {
+  background: url(../img/header_back.png);
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px; }
+  footer span {
+    font-family: "Roboto-Light";
+    font-size: 30px;
+    margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */

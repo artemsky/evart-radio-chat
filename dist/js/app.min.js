@@ -87,4 +87,28 @@ $(document).ready(function () {
     });
 
 
+    //slider
+
+    $("#evart-business-news .item .evart-image").css({
+        background: "url(../img/slider/1.jpg)",
+        backgroundSize: "cover"
+    });
+
+    $("#evart-business-mlm .item .evart-image").css({
+        background: "url(../img/slider/2.jpg)",
+        backgroundSize: "cover"
+    });
+
+    $("#evart-videos .item .evart-image").css({
+        background: "url(../img/slider/3.png)",
+        backgroundSize: "cover"
+    });
+
+    $("#evart-tech .item .evart-image").css({
+        background: "url(../img/slider/4.png)",
+        backgroundSize: "cover"
+    })
+
+
+
 });
