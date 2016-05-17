@@ -394,6 +394,8 @@ nav {
   background: linear-gradient(to bottom, #EFEFEF 40%, #ebebeb 60%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
   height: 47px; }
+  nav .evart-minimenu {
+    display: none; }
   nav ul {
     margin: 0; }
     nav ul li {
@@ -787,7 +789,8 @@ nav {
     padding-left: 20%;
     padding-top: 3%; }
   #evart-partners .evart-logos {
-    padding-bottom: 3%; }
+    padding-bottom: 3%;
+    text-align: center; }
 
 #evart-business-mlm .carousel-caption {
   bottom: 0;
@@ -820,5 +823,67 @@ footer {
     font-family: "Roboto-Light";
     font-size: 30px;
     margin: 0 auto; }
+
+@media only screen and (max-width: 1024px) {
+  .container-fluid {
+    padding-left: 40px !important; }
+  .evart-dots {
+    width: 100% !important; }
+  .evart-slider .carousel-control {
+    width: 20% !important; }
+  nav {
+    position: fixed;
+    z-index: 5000;
+    left: -195px;
+    top: 0;
+    bottom: 0;
+    width: 225px;
+    height: auto; }
+    nav .navigation {
+      justify-content: flex-start; }
+      nav .navigation ul.nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 30px;
+        bottom: 0; }
+        nav .navigation ul.nav li {
+          float: none; }
+          nav .navigation ul.nav li:last-child {
+            display: none; }
+      nav .navigation .evart-minimenu {
+        display: block;
+        width: 30px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: url(../img/slider/arrow.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: rotate(180deg);
+        cursor: pointer; }
+    nav .evart-chat {
+      right: auto;
+      left: 0; } }
+
+@media only screen and (max-width: 700px) {
+  .evart-submenu, .evart-chat {
+    width: 98vw !important; }
+    .evart-submenu .evart-body, .evart-chat .evart-body {
+      max-width: 98vw !important; }
+  .evart-radio .evart-now-playing {
+    padding-left: 10px !important;
+    font-size: 20px !important;
+    margin-top: 0 !important; }
+  .evart-radio .evart-logo {
+    background-size: contain !important;
+    background-position: center !important;
+    margin-top: 3% !important; } }
+
+@media only screen and (max-width: 560px) {
+  .evart-time {
+    display: none !important; } }
 
 /*# sourceMappingURL=main.css.map */

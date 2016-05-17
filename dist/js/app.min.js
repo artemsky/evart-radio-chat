@@ -96,6 +96,18 @@ $(document).ready(function () {
         background: "url(../img/slider/4.png)",
         backgroundSize: "cover"
     })
+    
+    $(".evart-minimenu").click(function(){
+        if($(this).hasClass("closed")){
+            $("nav").animate({left: 0}, 500);
+            $(this).removeClass("closed").css("transform", "rotate(0deg)");
+        }
+        else{
+            $("nav").animate({left: -195}, 500);
+            $(this).addClass("closed").css("transform", "rotate(180deg)");
+        }
+            
+    });
 
 
 

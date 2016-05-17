@@ -7,6 +7,9 @@ nav {
   background: linear-gradient(to bottom, #EFEFEF 40%, #ebebeb 60%);
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.8);
   height: 47px;
+  .evart-minimenu{
+    display:none;
+  }
   ul{
     margin: 0;
     li{
@@ -452,7 +455,8 @@ nav {
     padding-top: 3%;
   }
   .evart-logos{
-    padding-bottom: 3%
+    padding-bottom: 3%;
+    text-align: center;
   }
 }
 
