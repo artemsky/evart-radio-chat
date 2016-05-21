@@ -17,7 +17,8 @@ var gulp = require('gulp'),
         styles: {
             css: 'css/',
             scss: 'scss/',
-            maps: '/'
+            maps: '/',
+            vendor: "vendor/"
         },
         img: 'img/',
         html: 'pages/',
@@ -93,10 +94,9 @@ gulp.task('cpm-scss-release', function () {
     return gulp.src('main.scss', {cwd: dir.src + dir.styles.scss})
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 5 versions'],
+            browsers: ['> 5%', 'last 3 Chrome versions', 'Firefox > 20'],
             cascade: false
         }))
-        .pipe(shorthand())
         .pipe(cssnano())
         .pipe(gulp.dest(dir.release + dir.styles.css));
 });
@@ -104,16 +104,15 @@ gulp.task('cpm-scss-release', function () {
 //Delete unused styles and minify
 gulp.task('PostCSS',['uncss-Bootstrap'], function(){
     return gulp.src('**/*.css', {cwd: dir.release + dir.styles.css})
-    .pipe(shorthand())
-    .pipe(cssnano())
-    .pipe(gulp.dest(dir.release + dir.styles.css));
+        .pipe(cssnano())
+        .pipe(gulp.dest(dir.release + dir.styles.css));
 });
 
 //Uncss Bootstrap3
 gulp.task('uncss-Bootstrap', function(){
-    return gulp.src('bootstrap.css', {cwd: dir.release + dir.styles.css})
+    return gulp.src('bootstrap.min.css', {cwd: dir.release + dir.styles.css + dir.styles.vendor})
         .pipe(uncss({
-            html: [dir.release + 'views/*.html.twig', dir.release + dir.html + '**/*.tpl'],
+            html: [dir.release + '*.html'],
             ignore: [/\w\.in/,
                 '.fade',
                 '.collapse',
@@ -134,14 +133,7 @@ gulp.task('uncss-Bootstrap', function(){
                 '.in',
                 '.modal-backdrop']
         }))
-        .pipe(gulp.dest(dir.release + dir.styles.css));
-});
-
-//Pre-release compile
-gulp.task('prerelease', ['cls'], function(){
-    gulp.start('cpy-dependencies');
-    gulp.start('CompileHtml');
-    gulp.start('cpm-scss-release');
+        .pipe(gulp.dest(dir.release + dir.styles.css + dir.styles.vendor));
 });
 
 

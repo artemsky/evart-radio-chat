@@ -307,9 +307,7 @@ header {
       .evart-radio .evart-playlist .scrollable .vertical .thumb {
         border: 1px solid #dbdbdb;
         border-radius: 4px;
-        background-image: -moz-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-        background-image: -webkit-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-        background-image: -ms-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+        background-image: linear-gradient(to top, #f0f0f0 45%, #e6e6e6 55%);
         box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.7);
         width: 18px;
         height: 14px;
@@ -500,9 +498,7 @@ nav {
             nav ul li .evart-submenu .evart-body .scrollable .vertical .thumb {
               border: 1px solid #dbdbdb;
               border-radius: 4px;
-              background-image: -moz-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-              background-image: -webkit-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-              background-image: -ms-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+              background-image: linear-gradient(to top, #f0f0f0 45%, #e6e6e6 55%);
               box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.7);
               width: 18px;
               height: 14px;
@@ -622,9 +618,7 @@ nav {
             nav ul li .evart-chat .evart-body .scrollable .vertical .thumb {
               border: 1px solid #dbdbdb;
               border-radius: 4px;
-              background-image: -moz-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-              background-image: -webkit-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
-              background-image: -ms-linear-gradient(bottom, #f0f0f0 45%, #e6e6e6 55%);
+              background-image: linear-gradient(to top, #f0f0f0 45%, #e6e6e6 55%);
               box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.7);
               width: 18px;
               height: 14px;
