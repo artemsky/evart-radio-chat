@@ -88,7 +88,7 @@ $(document).ready(function () {
     });
 
     $("#evart-videos .item .evart-image").css({
-        background: "url(../img/slider/3.png)",
+        background: "url(../img/slider/3.jpg)",
         backgroundSize: "cover"
     });
 
