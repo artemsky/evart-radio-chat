@@ -236,9 +236,8 @@ gulp.task('watch', () =>{
     gulp.watch(`${dir.src}/scss/**/*.*`, gulp.series('styles'));
     gulp.watch([`${dir.src}/img/**`, `${dir.src}/js/**`, `${dir.src}/css/**`, `${dir.src}/fonts/**`, `${dir.src}/*.*`], gulp.series('assets'));
     gulp.watch('./bower_components/**/*.*', gulp.series('bower'));
-    gulp.watch(`${dir.src}/js/*.js`, gulp.series('lint'));
 });
 
-gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint', 'scsslint', 'watch', 'server')));
+gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint', 'scsslint'), gulp.parallel('watch', 'server')));
 gulp.task('release', gulp.series("cls", 'eslint', 'scsslint', gulp.parallel('bower', 'assets', 'styles'), 'minreplace'));
 
