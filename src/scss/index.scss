@@ -1,0 +1,13 @@
+@import "controller/fontface";
+@import "views/index/header";
+@import "views/index/main";
+@import "controller/footer";
+
+html {
+  font-family: "Glyphicons Halflings";
+  background: #eeeeee;
+  body {
+    background: #eeeeee;
+    @import "controller/nav";
+  }
+}

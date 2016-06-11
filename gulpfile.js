@@ -1,51 +1,86 @@
-var gulp = require('gulp'),
-    shorthand = require('gulp-shorthand'),
-    uncss = require('gulp-uncss'),
+"use strict";
+const gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
-    concat = require('gulp-concat'),
-    concatCss = require('gulp-concat-css'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
-    useref = require('gulp-useref'),
     clean = require('gulp-clean'),
     sass = require('gulp-sass'),
+    gulpif = require('gulp-if'),
+    mainBowerFiles = require('main-bower-files'),
+    filter = require('gulp-filter'),
+    imagemin = require('gulp-imagemin'),
+    flatten = require('gulp-flatten'),
+    ttf2woff2 = require('gulp-ttf2woff2'),
+    ttf2woff = require('gulp-ttf2woff'),
+    ttf2eot = require('gulp-ttf2eot'),
+    purify = require('gulp-purifycss'),
+    newer = require('gulp-newer'),
+    remember = require('gulp-remember'),
+    path = require('path'),
+    browsersync = require('browser-sync').create(),
+    eslint = require('gulp-eslint'),
+    replace = require('gulp-replace-task'),
+    sassLint = require('gulp-sass-lint'),
 
     dir = {
         src: './src/',
         release: './dist/',
-        styles: {
-            css: 'css/',
-            scss: 'scss/',
-            maps: '/',
-            vendor: "vendor/"
-        },
         img: 'img/',
-        html: 'pages/',
-        dependencies: [
-            "img/**",
-            "css/**"
-        ]
+        js: 'js/vendor/',
+        css: 'css/vendor/',
+        fonts: 'fonts/',
+        scss: 'scss/'
+    },
+    overrides = {
+        "bootstrap": {
+            "main": {
+                "development": ["./dist/js/bootstrap.js", "./dist/css/bootstrap.css", './dist/fonts/**'],
+                "production": ["./dist/js/bootstrap.min.js", "./dist/css/bootstrap.min.css", './dist/fonts/**']
+            }
+        },
+        "jquery":{
+            "main":{
+                "development": "./dist/jquery.js",
+                "production": "./dist/jquery.min.js"
+            }
+        },
+        "wow":{
+            "main":{
+                "development": "./dist/wow.js",
+                "production": "./dist/wow.min.js"
+            }
+        },
+        "animate.css":{
+            "main":{
+                "development": "./animate.css",
+                "production": "./animate.min.css"
+            }
+        }
     };
 
 /*******************************************************************
- ******************* Compile Tasks *********************************
+ ******************* Development Mode Setup ************************
  *******************************************************************/
 
-//Copy All Dependencies
-gulp.task('cpy-dependencies', ['cpy-bootstrap-fonts'], function () {
-    return gulp.src(dir.dependencies, { cwd: dir.src, base: dir.src})
-        .pipe(gulp.dest(dir.release))
-});
+let guppy = require('git-guppy')(gulp);
 
-//Copy All Dependencies
-gulp.task('cpy-bootstrap-fonts', function () {
-    return gulp.src("./bower_components//bootstrap/dist/fonts/**")
-        .pipe(gulp.dest(dir.release + dir.styles.css + "fonts"))
-});
+process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.trim() : 'dev';
+var DevMode;
+if(!process.env.NODE_ENV || process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'dev'){
+    DevMode = true;
+    process.env.NODE_ENV = 'development';
+} else{
+    DevMode = false;
+    process.env.NODE_ENV = 'production';
+}
 
-//Clean Folder Before Build
-gulp.task('cls', function () {
+/*******************************************************************
+ ******************* Build Tasks ***********************************
+ *******************************************************************/
+
+//Clean before build
+gulp.task('cls', () => {
     return gulp.src(dir.release)
         .pipe(clean({
             force: true,
@@ -53,103 +88,157 @@ gulp.task('cls', function () {
         }));
 });
 
-//Replace blocks of html code with builds
-gulp.task('CompileHtml', function () {
-    return gulp.src('**/*.html', {cwd: dir.src})
-        .pipe(useref())
-        .pipe(gulp.dest(dir.release));
-});
+//Copy assets
+gulp.task('assets', () => {
+    const jsFilter = filter('**/*.js', {restore: true}),
+        styleFilter = filter('**/*.css', {restore: true}),
+        fontFilter = filter('**/*.ttf'),
+        imageFilter = filter('**/*.{png,jpg,gif,svg}', {restore: true}),
+        htmlFilter = filter('**/*.html', {restore: true});
 
-//Compile scss witch sourcemaps without PostCSS
-gulp.task('cpm-scss-debug', function () {
-    return gulp.src('main.scss', {cwd: dir.src + dir.styles.scss})
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write(dir.styles.maps))
-        .pipe(gulp.dest(dir.release + dir.styles.css));
-});
-
-/*******************************************************************
-******************* Release Tasks **********************************
-********************************************************************/
-
-//Minify all Javascript
-gulp.task('MinifyJS', function () {
-    return gulp.src('**/*.js', {cwd: dir.release})
-        .pipe(uglify())
-        .pipe(gulp.dest(dir.release));
-});
-
-//Clean all maps
-gulp.task('cls-maps', function () {
-    return gulp.src('**/*.map', {cwd: dir.release})
-        .pipe(clean({
-            force: true,
-            read: false
-        }));
-});
-
-//Compile scss with PostCSS
-gulp.task('cpm-scss-release', function () {
-    return gulp.src('main.scss', {cwd: dir.src + dir.styles.scss})
-        .pipe(sass().on('error', sass.logError))
+    return gulp.src(`${dir.src}/**`, {since: gulp.lastRun('assets')})
+        .pipe(flatten())
+        //Images
+        .pipe(imageFilter)
+        .pipe(newer(dir.release + dir.img))
+        .pipe(imagemin())
+        .pipe(gulp.dest(dir.release + dir.img))
+        .pipe(imageFilter.restore)
+        //Javascript
+        .pipe(jsFilter)
+        .pipe(newer(`${dir.release}/js`))
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(gulpif(DevMode, sourcemaps.init()))
+        .pipe(uglify().on('error', (e)=>{console.log(e.message);}))
+        .pipe(gulpif(DevMode, sourcemaps.write()))
+        .pipe(gulp.dest(`${dir.release}/js`))
+        .pipe(jsFilter.restore)
+        //Style
+        .pipe(styleFilter)
+        .pipe(newer(dir.release + dir.css))
+        .pipe(gulpif(!DevMode, purify([`${dir.src}**/*.js`, `${dir.src}**/*.html`])))
+        .pipe(gulpif(DevMode, sourcemaps.init()))
         .pipe(autoprefixer({
-            browsers: ['> 5%', 'last 3 Chrome versions', 'Firefox > 20'],
+            browsers: ['> 5%', 'last 10 Chrome versions', 'Firefox > 20'],
             cascade: false
         }))
         .pipe(cssnano())
-        .pipe(gulp.dest(dir.release + dir.styles.css));
+        .pipe(gulpif(DevMode, sourcemaps.write()))
+        .pipe(gulp.dest(dir.release + dir.css))
+        .pipe(styleFilter.restore)
+        //HTML
+        .pipe(htmlFilter)
+        .pipe(newer(dir.release))
+        .pipe(gulp.dest(dir.release))
+        .pipe(htmlFilter.restore)
+        //Fonts
+        .pipe(fontFilter)
+        .pipe(newer(dir.release + dir.fonts))
+        .pipe(ttf2eot({clone:true}))
+        .pipe(ttf2woff({clone:true}))
+        .pipe(ttf2woff2({clone:true}))
+        .pipe(gulp.dest(dir.release + dir.fonts));
+
 });
 
-//Delete unused styles and minify
-gulp.task('PostCSS',['uncss-Bootstrap'], function(){
-    return gulp.src('**/*.css', {cwd: dir.release + dir.styles.css})
-        .pipe(cssnano())
-        .pipe(gulp.dest(dir.release + dir.styles.css));
+
+//Copy bower dependencies
+gulp.task('bower', () => {
+    const jsFilter = filter('**/*.js', {restore: true}),
+        styleFilter = filter('**/*.css', {restore: true}),
+        fontFilter = filter('**/*.{eot,ttf,woff,woff2}');
+
+    return gulp.src(mainBowerFiles({ "overrides": overrides }), { cwd: './bower_components' })
+        //Javascript
+        .pipe(jsFilter)
+        .pipe(newer(`${dir.release+dir.js}`))
+        .pipe(gulp.dest(`${dir.release+dir.js}`))
+        .pipe(jsFilter.restore)
+        //CSS
+        .pipe(styleFilter)
+        .pipe(newer(`${dir.release+dir.css}`))
+        .pipe(gulp.dest(`${dir.release+dir.css}`))
+        .pipe(styleFilter.restore)
+        //Fonts
+        .pipe(fontFilter)
+        .pipe(newer(`${dir.release+dir.fonts}`))
+        .pipe(gulp.dest(`${dir.release+dir.fonts}`))
+
 });
 
-//Uncss Bootstrap3
-gulp.task('uncss-Bootstrap', function(){
-    return gulp.src('bootstrap.min.css', {cwd: dir.release + dir.styles.css + dir.styles.vendor})
-        .pipe(uncss({
-            html: [dir.release + '*.html'],
-            ignore: [/\w\.in/,
-                '.fade',
-                '.collapse',
-                '.collapsing',
-                /(#|\.)navbar(\-[a-zA-Z]+)?/,
-                /(#|\.)dropdown(\-[a-zA-Z]+)?/,
-                /(#|\.)(open)/,
-                '.modal',
-                '.modal.fade.in',
-                '.modal-dialog',
-                '.modal-document',
-                '.modal-scrollbar-measure',
-                '.modal-backdrop.fade',
-                '.modal-backdrop.in',
-                '.modal.fade.modal-dialog',
-                '.modal.in.modal-dialog',
-                '.modal-open',
-                '.in',
-                '.modal-backdrop']
+
+//Compile Styles
+gulp.task('styles', () => {
+    return gulp.src('*.scss', {cwd: dir.src + dir.scss})
+        .pipe(flatten())
+        .pipe(sassLint())
+        .pipe(gulpif(DevMode, sourcemaps.init()))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['> 5%', 'last 10 Chrome versions', 'Firefox > 20'],
+            cascade: false
         }))
-        .pipe(gulp.dest(dir.release + dir.styles.css + dir.styles.vendor));
+        .pipe(cssnano())
+        .pipe(gulpif(DevMode, sourcemaps.write()))
+        .pipe(gulp.dest(`${dir.release}/css`));
 });
 
+//Lint js
+gulp.task('eslint', function () {
+    return gulp.src(`${dir.src}/js/**/*.js`)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
+
+//Lint scss
+gulp.task('scsslint', function () {
+    return gulp.src(`${dir.src}/scss/**/*.scss`)
+        .pipe(sassLint())
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
+});
+
+gulp.task('minreplace', function () {
+    return gulp.src('**/*.html', {cwd: dir.release })
+        .pipe(replace({
+            patterns: [
+                {
+                    match: /\/vendor\/\w+.(js|css)/g,
+                    replacement: function (match) {
+                        if(match.includes(".min.")) return;
+                        match = match.trim();
+                        let to = match.lastIndexOf(".");
+                        return match.includes(".js") ? match.substring(0, to).concat(".min.js") : match.substring(0, to).concat(".min.css")
+                    }
+                }
+            ]
+        }))
+        .pipe(gulp.dest(dir.release));
+});
 
 /*******************************************************************
  ******************* Global Tasks **********************************
  ********************************************************************/
 
-gulp.task('debug', ['cls'], function(){
-    gulp.start('cpy-dependencies');
-    gulp.start('CompileHtml');
-    gulp.start('cpm-scss-debug');
+//githook pre-commitgit
+gulp.task('pre-commit', gulp.parallel('eslint', 'scsslint'));
+
+gulp.task('server', () =>{
+    browsersync.init({
+       server: dir.release
+    });
+    browsersync.watch(`${dir.release}/**/*.*`).on('change', browsersync.reload);
 });
 
-gulp.task('release', ['cpy-dependencies', 'CompileHtml', 'cpm-scss-release'], function(){
-    gulp.start('cls-maps');
-    gulp.start('MinifyJS');
-    gulp.start('PostCSS');
+gulp.task('watch', () =>{
+    gulp.watch(`${dir.src}/scss/**/*.*`, gulp.series('styles'));
+    gulp.watch([`${dir.src}/img/**`, `${dir.src}/js/**`, `${dir.src}/css/**`, `${dir.src}/fonts/**`, `${dir.src}/*.*`], gulp.series('assets'));
+    gulp.watch('./bower_components/**/*.*', gulp.series('bower'));
+    gulp.watch(`${dir.src}/js/*.js`, gulp.series('lint'));
 });
+
+gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint', 'scsslint', 'watch', 'server')));
+gulp.task('release', gulp.series("cls", 'eslint', 'scsslint', gulp.parallel('bower', 'assets', 'styles'), 'minreplace'));
 

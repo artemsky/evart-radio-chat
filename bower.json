@@ -1,17 +1,16 @@
 {
-  "name": "Evart-radio-chat",
-  "description": "Evart",
+  "name": "radio-chat",
+  "description": "Evart radio-chat",
   "main": "index.html",
   "authors": [
     "Mr.ArtemSky <mr.artemsky@gmail.com>"
   ],
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "moduleType": [],
   "homepage": "",
-  "private": true,
+  "private": false,
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "~2.2.2",
-    "rangeslider.js": "^2.1.1"
+    "jquery": "~2.2.2"
   }
 }
