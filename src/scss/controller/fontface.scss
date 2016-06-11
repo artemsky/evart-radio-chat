@@ -15,3 +15,21 @@
   url('../fonts/OpenSansRegular.woff') format('woff'),
   url('../fonts/OpenSansRegular.ttf') format('truetype')
 }
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('../fonts/OpenSansBold.eot');
+  src: url('../fonts/OpenSansBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSansBold.woff2') format('woff2'),
+  url('../fonts/OpenSansBold.woff') format('woff'),
+  url('../fonts/OpenSansBold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans SemiBold';
+  src: url('../fonts/OpenSansSemiBold.eot');
+  src: url('../fonts/OpenSansSemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSansSemiBold.woff2') format('woff2'),
+  url('../fonts/OpenSansSemiBold.woff') format('woff'),
+  url('../fonts/OpenSansSemiBold.ttf') format('truetype')
+}

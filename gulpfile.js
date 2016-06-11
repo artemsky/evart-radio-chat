@@ -56,6 +56,18 @@ const gulp = require('gulp'),
                 "development": "./animate.css",
                 "production": "./animate.min.css"
             }
+        },
+        "owl.carousel":{
+            "main":{
+                "development" : [
+                    "dist/owl.carousel.js",
+                    "dist/assets/owl.carousel.css"
+                ],
+                "production" : [
+                    "dist/owl.carousel.min.js",
+                    "dist/assets/owl.carousel.min.css"
+                ]
+            }
         }
     };
 
