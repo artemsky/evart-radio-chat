@@ -88,10 +88,12 @@ main{
             border-left: none;
             position: relative;
             margin: 90px auto;
-            font-family: "Open Sans Light";
             font-size: 34px;
             color: #ffffff;
             width: calc(100% - 100px);
+            p{
+              font-family: "Open Sans Light Italic";
+            }
             &:before, &:after{
               content: "";
               background: url(../img/qm-sprite.png) no-repeat;
@@ -113,4 +115,6 @@ main{
       }
     }
   }
+
+  @import "slider/efirslider";
 }

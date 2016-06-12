@@ -69,13 +69,26 @@ jQuery(function($) {
             singleItem: true,
             dots: false,
             autoplay: true,
-            autoplayTimeout: 5000,
+            autoplayTimeout: 13000,
             loop: true,
-            animateOut: 'owl-fadeUp-out',
-            animateIn: 'owl-fade-in',
             navText: [
                 "<span class='glyphicon glyphicon-menu-left'></span>",
                 "<span class='glyphicon glyphicon-menu-right'></span>"]
+        });
+
+    });
+
+
+    //Efir
+    $(document).ready(function() {
+        var slider = $("#efir .owl-carousel");
+        slider.owlCarousel({
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            items: slider.find(".item").length-1,
+            autoplay: true,
+            autoplayTimeout: 7000,
+            loop: true
         });
 
     });

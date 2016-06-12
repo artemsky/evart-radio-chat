@@ -41,3 +41,21 @@
   url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
   url('../fonts/HelveticaNeueCyr-Roman.ttf') format('truetype')
 }
+
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url('../fonts/OpenSansLight.eot');
+  src: url('../fonts/OpenSansLight.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSansLight.woff2') format('woff2'),
+  url('../fonts/OpenSansLight.woff') format('woff'),
+  url('../fonts/OpenSansLight.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans Light Italic';
+  src: url('../fonts/OpenSansLightItalic.eot');
+  src: url('../fonts/OpenSansLightItalic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSansLightItalic.woff2') format('woff2'),
+  url('../fonts/OpenSansLightItalic.woff') format('woff'),
+  url('../fonts/OpenSansLightItalic.ttf') format('truetype')
+}
