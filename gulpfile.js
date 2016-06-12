@@ -60,13 +60,19 @@ const gulp = require('gulp'),
         "owl.carousel":{
             "main":{
                 "development" : [
-                    "dist/owl.carousel.js",
-                    "dist/assets/owl.carousel.css"
+                    "./dist/owl.carousel.js",
+                    "./dist/assets/owl.carousel.css"
                 ],
                 "production" : [
-                    "dist/owl.carousel.min.js",
-                    "dist/assets/owl.carousel.min.css"
+                    "./dist/owl.carousel.min.js",
+                    "./dist/assets/owl.carousel.min.css"
                 ]
+            }
+        },
+        "rangeslider.js":{
+            "main":{
+                "development": "./dist/rangeslider.js",
+                "production": "./dist/rangeslider.min.js"
             }
         }
     };
@@ -250,6 +256,6 @@ gulp.task('watch', () =>{
     gulp.watch('./bower_components/**/*.*', gulp.series('bower'));
 });
 
-gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint', 'scsslint'), gulp.parallel('watch', 'server')));
+gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint'), gulp.parallel('watch', 'server')));
 gulp.task('release', gulp.series("cls", 'eslint', 'scsslint', gulp.parallel('bower', 'assets', 'styles'), 'minreplace'));
 

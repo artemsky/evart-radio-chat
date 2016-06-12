@@ -1,3 +1,35 @@
 main{
-  
+  margin-top: 20px;
+  background: linear-gradient(13deg, transparent 50%, #0e9ef1 50%);
+  height: 1000px;
+
+  #player{
+
+    @import "../../controller/player/player";
+    @import "../../controller/player/program";
+  }
+
+  #features{
+    h2{
+      font-family: "Open Sans Regular";
+      font-size: 36px;
+      color: #ffffff;
+      margin-bottom: 10px;
+      span{
+        font-family: "Open Sans Bold";
+      }
+    }
+    h3{
+      font-family: "Open Sans Regular";
+      font-size: 30px;
+      color: #ffffff;
+      margin-top: 0;
+    }
+    h4{
+      font-family: "Open Sans Regular";
+      font-size: 24px;
+      color: #ffffff;
+      margin-top: 35px;
+    }
+  }
 }
