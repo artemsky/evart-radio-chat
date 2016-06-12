@@ -1,3 +1,9 @@
+@mixin stitches-sprite($x: 0, $y: 0, $width: 0, $height: 0) {
+  background-position: $x $y;
+  width: $width;
+  height: $height;
+}
+
 main{
   margin-top: 20px;
   background: linear-gradient(13deg, transparent 50%, #0e9ef1 50%);
@@ -30,6 +36,81 @@ main{
       font-size: 24px;
       color: #ffffff;
       margin-top: 35px;
+    }
+  }
+
+  #blockquote{
+    @import "../index/slider/blockquoteslider";
+    margin-top: 215px;
+    .owl-carousel{
+      .item{
+        .slider-inner{
+          .carousel-content{
+            article{
+              color: #fff;
+              overflow: hidden;
+              .img-wrap{
+                float: left;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 5px solid #fff;
+                overflow: hidden;
+                position: relative;
+                z-index: 2;
+                img{
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  z-index: 1;
+                }
+              }
+              .info-wrap{
+                float: left;
+                width: calc(100% - 150px);
+                position: relative;
+                padding: 0 30px;
+                h4{
+                  font-family: "Open Sans SemiBold";
+                  font-size: 30px;
+                  margin-bottom: 5px;
+                  margin-top: 30px;
+                }
+                p{
+                  font-family: "Open Sans";
+                  font-size: 18px;
+                  margin-bottom: 0;
+                }
+              }
+            }
+          }
+          blockquote{
+            border-left: none;
+            position: relative;
+            margin: 90px auto;
+            font-family: "Open Sans Light";
+            font-size: 34px;
+            color: #ffffff;
+            width: calc(100% - 100px);
+            &:before, &:after{
+              content: "";
+              background: url(../img/qm-sprite.png) no-repeat;
+              display: block;
+              position: absolute;
+            }
+            &:before{
+              @include stitches-sprite(-70px, -2px, 64px, 46px);
+              top: -40px;
+              left: -40px;
+            }
+            &:after{
+              @include stitches-sprite(-2px, -2px, 64px, 46px);
+              right: -40px;
+              bottom: -40px;
+            }
+          }
+        }
+      }
     }
   }
 }

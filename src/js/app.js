@@ -1,8 +1,9 @@
 jQuery(function($) {
     'use strict';
+    
+    //Main slider
     $(document).ready(function() {
-
-        $("#owl-demo").owlCarousel({
+        $("#main-slider .owl-carousel").owlCarousel({
 
             nav : true, // Show next and prev buttons
             slideSpeed : 300,
@@ -11,7 +12,7 @@ jQuery(function($) {
             singleItem: true,
             dots: true,
             autoplay: true,
-            autoplayTimeout: 2000,
+            autoplayTimeout: 5000,
             loop: true,
             animateOut: 'owl-fadeUp-out',
             animateIn: 'owl-fade-in',
@@ -23,7 +24,6 @@ jQuery(function($) {
     });
 
     //Rangeslider.js
-
     $(document).ready(function() {
         var player = $("#player");
         var rangeslider = player.find('input[type="range"]').rangeslider({
@@ -56,6 +56,31 @@ jQuery(function($) {
             wheelPropagation: true
         });
     });
+
+
+    //Blockquote
+    $(document).ready(function() {
+        $("#blockquote .owl-carousel").owlCarousel({
+
+            nav : true, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            items: 1,
+            singleItem: true,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            loop: true,
+            animateOut: 'owl-fadeUp-out',
+            animateIn: 'owl-fade-in',
+            navText: [
+                "<span class='glyphicon glyphicon-menu-left'></span>",
+                "<span class='glyphicon glyphicon-menu-right'></span>"]
+        });
+
+    });
+    
+    
 
 });
 
