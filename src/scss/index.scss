@@ -8,6 +8,7 @@ html {
   background: #52aff7;
   body {
     background: #52aff7;
+    overflow-x: hidden;
     @import "controller/nav";
   }
 }

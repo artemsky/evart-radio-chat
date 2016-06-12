@@ -48,6 +48,15 @@ jQuery(function($) {
 
     });
 
+    //Scrollbar
+    $(document).ready(function() {
+        $('#program').perfectScrollbar({
+            suppressScrollX: true,
+            wheelSpeed: 0.5,
+            wheelPropagation: true
+        });
+    });
+
 });
 
 

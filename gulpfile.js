@@ -69,6 +69,18 @@ const gulp = require('gulp'),
                 ]
             }
         },
+        "perfect-scrollbar":{
+            "main":{
+                "development" : [
+                    "./js/perfect-scrollbar.jquery.js",
+                    "./css/perfect-scrollbar.css"
+                ],
+                "production" : [
+                    "./js/perfect-scrollbar.jquery.min.js",
+                    "./css/perfect-scrollbar.min.css"
+                ]
+            }
+        },
         "rangeslider.js":{
             "main":{
                 "development": "./dist/rangeslider.js",
