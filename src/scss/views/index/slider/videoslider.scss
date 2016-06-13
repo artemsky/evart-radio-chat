@@ -31,6 +31,7 @@
           font-family: "Open Sans Light";
           font-size: 18px;
           color: #000;
+          z-index: 1;
         }
         .video-wrapper{
           height: 475px;
@@ -44,6 +45,12 @@
             right: 0;
             height: 235px;
             background: url(../img/video-shadow.png) no-repeat bottom / contain;
+            z-index: -1;
+          }
+          @media (max-width: 768px) {
+            &:after{
+              bottom: 25px;
+            }
           }
         }
 

@@ -6,9 +6,11 @@
 
 main{
   margin-top: 20px;
-  background: linear-gradient(13deg, transparent 50%, #0e9ef1 50%);
-  height: 1000px;
 
+  .wrap-gradient{
+    height: 1000px;
+    background: linear-gradient(13deg, transparent 50%, #0e9ef1 50%);
+  }
   @import "slider/efirslider";
 
   #player{
@@ -121,5 +123,135 @@ main{
   #video{
     background: #fff;
     @import "slider/videoslider";
+  }
+
+  #support{
+    background: #0e9ef1;
+    padding: 70px 0;
+    article{
+      color:#ffffff;
+      @media (max-width: 768px){
+        margin-bottom: 40px;
+      }
+      h3{
+        font-family: "Open Sans SemiBold";
+        font-size: 24px;
+        margin-top: 130px;
+        margin-bottom: 0;
+        @media (max-width: 768px){
+          margin-top: 0;
+        }
+      }
+      p{
+        font-family: "Panton Regular";
+        font-size: 16px;
+        margin: 20px 0;
+      }
+      span{
+        font-family: "Panton Regular";
+        font-size: 16px;
+        display: block;
+        background: url(../img/support-sprite.png) no-repeat;
+        padding-left: 30px;
+        margin-left: 2px;
+        margin-bottom: 3px;
+        &.ico-home{
+          background-position: 0 3px;
+        }
+        &.ico-phone{
+          background-position: 0 -20px;
+        }
+        &.ico-cloud{
+          background-position: 0 -47px;
+        }
+        &.ico-mail{
+          background-position: 0 -75px;
+        }
+      }
+    }
+    h2{
+      font-family: "Open Sans SemiBold";
+      font-size: 36px;
+      color: #ffffff;
+    }
+    p{
+      font-family: "Open Sans Light";
+      font-size: 18px;
+      color: #fff;
+    }
+    form{
+      .form-control{
+        font-family: "Open Sans";
+        font-size: 16px;
+        background: transparent;
+        border: 1px solid #fff;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+      input{
+        height: 60px;
+        line-height: 60px;
+        padding: 6px 25px;
+      }
+      $placeholder-color: #fefefe;
+      ::-webkit-input-placeholder {color:$placeholder-color;}
+      ::-moz-placeholder          {color:$placeholder-color;}
+      :-moz-placeholder           {color:$placeholder-color;}
+      :-ms-input-placeholder      {color:$placeholder-color;}
+      input[placeholder]          {text-overflow:ellipsis;}
+      input::-moz-placeholder     {text-overflow:ellipsis;}
+      input:-moz-placeholder      {text-overflow:ellipsis;}
+      input:-ms-input-placeholder {text-overflow:ellipsis;}
+      textarea{
+        resize: none;
+        height: 100px;
+        line-height: 1.2;
+        padding: 15px 25px;
+      }
+      .input-group{
+        margin-bottom: 20px;
+        input{
+          background: #ffffff;
+        }
+        $color: #52aff7;
+        ::-webkit-input-placeholder {color:lighten($color, 5%);}
+        ::-moz-placeholder          {color:lighten($color, 5%);}
+        :-moz-placeholder           {color:lighten($color, 5%);}
+        :-ms-input-placeholder      {color:lighten($color, 5%);}
+        .form-control{
+          font-family: "Open Sans SemiBold";
+          margin-bottom: 0;
+          color: #0e9ef1;
+        }
+        span{
+          background: $color;
+          border: 1px solid #fff;
+          padding: 6px 40px;
+          cursor: pointer;
+          .ico-ok{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url(../img/support-sprite.png) no-repeat;
+            background-position: 0 -95px;
+          }
+          &:hover{
+            background: lighten($color, 5%);
+          }
+          &:active{
+            background: darken($color, 5%);
+          }
+        }
+      }
+      .deliverstatus{
+        font-family: "Open Sans Italic";
+        font-size: 16px;
+        color: #fff;
+        display: none;
+        &.error{
+          color: #af0707;
+        }
+      }
+    }
   }
 }

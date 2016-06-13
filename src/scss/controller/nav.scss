@@ -3,14 +3,33 @@ nav {
     cursor: pointer;
   }
   margin-top: 20px;
+  @media (max-width: 1099px) {
+    margin-top: 10px;
+  }
   .navbar-header{
     display: inline-block;
     float: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
     .navbar-brand{
       background: url(../img/logo.png) no-repeat center / cover;
       width: 170px;
       height: 145px;
       padding: 0;
+      @media (max-width: 768px) {
+        width: 106px;
+        height: 90px;
+        margin-bottom: 10px;
+      }
+
+    }
+    button{
+      span.glyphicon{
+        color: white;
+        font-size: 45px;
+        top: 10px;
+      }
     }
   }
   .navbar-collapse{
@@ -18,7 +37,17 @@ nav {
       overflow: hidden;
       padding: 15px;
       >ul{
+        @media (max-width: 1099px) {
+          text-align: right;
+          @media (max-width: 768px) {
+            text-align: center;
+          }
+        }
         >li{
+          @media (max-width: 1099px) {
+            float: none;
+            display: inline-block;
+          }
           >a{
             transition: all .3s;
             font-family: "Open Sans Regular";

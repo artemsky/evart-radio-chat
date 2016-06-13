@@ -18,7 +18,15 @@ jQuery(function($) {
             animateIn: 'owl-fade-in',
             navText: [
                 "<span class='glyphicon glyphicon-menu-left'></span>",
-                "<span class='glyphicon glyphicon-menu-right'></span>"]
+                "<span class='glyphicon glyphicon-menu-right'></span>"],
+            responsive:{
+                0:{
+                   nav: false
+                },
+               992:{
+                   nav : true
+               }
+            }
         });
 
     });
@@ -88,8 +96,26 @@ jQuery(function($) {
             items: slider.find(".item").length-1,
             autoplay: true,
             autoplayTimeout: 7000,
-            loop: true
+            loop: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                650:{
+                    items:2
+                },
+                992:{
+                    items:3
+                },
+                1300:{
+                    items:4
+                },
+                1600:{
+                    items:5
+                }
+            }
         });
+
 
     });
 
@@ -115,10 +141,63 @@ jQuery(function($) {
             items: slider.find(".item").length-1,
             autoplay: true,
             autoplayTimeout: 9000,
-            loop: true
+            loop: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                650:{
+                    items:2
+                },
+                992:{
+                    items:3
+                },
+                1300:{
+                    items:4
+                },
+                1600:{
+                    items:5
+                }
+            }
         });
 
     });
+
+    //Sendmail request demo
+    $(document).ready(function() {
+        /*
+         Response JSON Object EXAMPLE
+            {
+                status: "success" || "error"
+                text: "Your message has been delivered!" || "Your message has not been delivered!"
+            }
+         */
+
+        var URL = "script.php";
+
+        $("#sendmail").click(function(){
+            var form = $("#support form");
+            $.post(URL, {
+                data: form.serializeArray()
+            }).done(function(response){
+                response = JSON.parse(response);
+                var obj = form.find(".deliverstatus");
+                obj.text(response.text)
+                    .show();
+                if(response.status != "success")
+                    obj.addClass("error");
+
+                setTimeout(function(){
+                    obj.removeClass("error")
+                        .hide();
+                }, 10000)
+                
+            });
+        });
+
+
+    });
+
     
     
 

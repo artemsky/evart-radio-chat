@@ -1,0 +1,50 @@
+@mixin stitches-sprite($x: 0, $y: 0, $width: 0, $height: 0) {
+  background-position: $x $y;
+  width: $width;
+  height: $height;
+}
+
+footer{
+  background: #30373a;
+  padding: 70px 20px;
+  h6, p{
+    font-family: "Open Sans Light";
+    color: #ffffff;
+  }
+  h6{
+    margin-top: 70px;
+    font-size: 24px;
+  }
+  p{
+    font-size: 16px;
+  }
+  .sprite {
+    background: url(../img/socials.png) no-repeat;
+    display: inline-block;
+
+    &.sprite-facebook {
+      @include stitches-sprite(-2px, -2px, 43px, 43px);
+    }
+
+    &.sprite-google {
+      @include stitches-sprite(-49px, -2px, 43px, 43px);
+    }
+
+    &.sprite-odnoklasniki {
+      @include stitches-sprite(-2px, -49px, 43px, 43px);
+    }
+
+    &.sprite-rss {
+      @include stitches-sprite(-49px, -49px, 43px, 43px);
+    }
+
+    &.sprite-twitter {
+      @include stitches-sprite(-96px, -2px, 43px, 43px);
+    }
+
+    &.sprite-vkontakte {
+      @include stitches-sprite(-96px, -49px, 43px, 43px);
+    }
+  }
+
+}
