@@ -9,6 +9,8 @@ main{
   background: linear-gradient(13deg, transparent 50%, #0e9ef1 50%);
   height: 1000px;
 
+  @import "slider/efirslider";
+
   #player{
 
     @import "../../controller/player/player";
@@ -116,5 +118,8 @@ main{
     }
   }
 
-  @import "slider/efirslider";
+  #video{
+    background: #fff;
+    @import "slider/videoslider";
+  }
 }

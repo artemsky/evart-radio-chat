@@ -79,15 +79,42 @@ jQuery(function($) {
     });
 
 
-    //Efir
+    //Efir Upper
     $(document).ready(function() {
-        var slider = $("#efir .owl-carousel");
+        var slider = $("#efir-upper .owl-carousel");
         slider.owlCarousel({
             slideSpeed : 300,
             paginationSpeed : 400,
             items: slider.find(".item").length-1,
             autoplay: true,
             autoplayTimeout: 7000,
+            loop: true
+        });
+
+    });
+
+    //Video
+    $(document).ready(function() {
+        $("#video .owl-carousel").owlCarousel({
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            items: 1,
+            singleItem: true,
+            dots: true,
+            loop: true
+        });
+
+    });
+
+    //Efir Lower
+    $(document).ready(function() {
+        var slider = $("#efir-lower .owl-carousel");
+        slider.owlCarousel({
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            items: slider.find(".item").length-1,
+            autoplay: true,
+            autoplayTimeout: 9000,
             loop: true
         });
 
