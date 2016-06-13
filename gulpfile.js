@@ -235,7 +235,7 @@ gulp.task('minreplace', function () {
         .pipe(replace({
             patterns: [
                 {
-                    match: /\/vendor\/\w+.(js|css)/g,
+                    match: /\/vendor\/(\w+|\w+.\w+|\w+.\w+.\w+.).(js|css)/g,
                     replacement: function (match) {
                         if(match.includes(".min.")) return;
                         match = match.trim();
@@ -269,5 +269,5 @@ gulp.task('watch', () =>{
 });
 
 gulp.task('build', gulp.series(gulp.parallel('bower', 'assets', 'styles'), gulp.parallel('eslint'), gulp.parallel('watch', 'server')));
-gulp.task('release', gulp.series("cls", 'eslint', 'scsslint', gulp.parallel('bower', 'assets', 'styles'), 'minreplace'));
+gulp.task('release', gulp.series("cls", gulp.parallel('bower', 'assets', 'styles'), 'minreplace'));
 
