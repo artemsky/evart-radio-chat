@@ -150,7 +150,7 @@ gulp.task('assets', () => {
         .pipe(gulpif(!DevMode, purify([`${dir.src}**/*.js`, `${dir.src}**/*.html`])))
         .pipe(gulpif(DevMode, sourcemaps.init()))
         .pipe(autoprefixer({
-            browsers: ['> 5%', 'last 10 Chrome versions', 'Firefox > 20'],
+            browsers: ['Chrome > 25', 'Safari > 6', 'iOS 7', 'Firefox > 25'],
             cascade: false
         }))
         .pipe(cssnano())
