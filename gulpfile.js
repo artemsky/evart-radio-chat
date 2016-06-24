@@ -86,6 +86,18 @@ const gulp = require('gulp'),
                 "development": "./dist/rangeslider.js",
                 "production": "./dist/rangeslider.min.js"
             }
+        },
+        "jquery.countdown":{
+            "main":{
+                "development": "./dist/jquery.countdown.js",
+                "production": "./dist/jquery.countdown.min.js"
+            }
+        },
+        "lodash":{
+            "main":{
+                "development": "./dist/lodash.js",
+                "production": "./dist/lodash.min.js"
+            }
         }
     };
 
