@@ -18,12 +18,10 @@ footer{
 
   .socials{
     margin-top: 15px;
-    float: right;
+
     @media (max-width: 1200px){
       margin-top: 35px;
-      @media (max-width: 992px){
-        float: none;
-      }
+
     }
   }
   .sprite{
