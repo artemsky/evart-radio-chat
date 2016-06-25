@@ -1,49 +1,45 @@
-@mixin stitches-sprite($x: 0, $y: 0, $width: 0, $height: 0) {
-  background-position: $x $y;
-  width: $width;
-  height: $height;
-}
 
 footer{
   background: linear-gradient(top, #23282b 0, #080909 100%);
-  padding: 70px 20px;
-  h6, p{
+  padding: 20px;
+  p{
     font-family: "Open Sans Light";
     color: #ffffff;
-  }
-  h6{
-    margin-top: 70px;
-    font-size: 24px;
-  }
-  p{
     font-size: 16px;
-  }
-  .sprite {
-    background: url(../img/socials.png) no-repeat;
     display: inline-block;
+    padding-left: 10px;
+    @media (max-width: 992px){
+      display: block;
+    }
+  }
+  img{
+    margin-bottom: 10px;
+  }
 
+  .socials{
+    margin-top: 15px;
+    float: right;
+    @media (max-width: 1200px){
+      margin-top: 35px;
+      @media (max-width: 992px){
+        float: none;
+      }
+    }
+  }
+  .sprite{
+    background: #212c34 url(../img/socials.png) no-repeat center;
+    display: inline-block;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
     &.sprite-facebook {
-      @include stitches-sprite(-2px, -2px, 43px, 43px);
+      background-position: 12px 4px;
     }
-
-    &.sprite-google {
-      @include stitches-sprite(-49px, -2px, 43px, 43px);
-    }
-
-    &.sprite-odnoklasniki {
-      @include stitches-sprite(-2px, -49px, 43px, 43px);
-    }
-
-    &.sprite-rss {
-      @include stitches-sprite(-49px, -49px, 43px, 43px);
-    }
-
     &.sprite-twitter {
-      @include stitches-sprite(-96px, -2px, 43px, 43px);
+      background-position: -18px 7px;
     }
-
     &.sprite-vkontakte {
-      @include stitches-sprite(-96px, -49px, 43px, 43px);
+      background-position: -56px 10px;
     }
   }
 

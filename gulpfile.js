@@ -22,8 +22,9 @@ const gulp = require('gulp'),
     eslint = require('gulp-eslint'),
     replace = require('gulp-replace-task'),
     sassLint = require('gulp-sass-lint'),
+    spritesmith = require("gulp-spritesmith"),
 
-    dir = {
+dir = {
         src: './src/',
         release: './dist/',
         img: 'img/',
@@ -240,6 +241,18 @@ gulp.task('scsslint', function () {
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
+});
+
+//Make Sprite
+gulp.task('sprite', function () {
+    return  gulp.src('./psd/assets/sprite/*.png')
+        .pipe(spritesmith({
+            imgName: 'sprite.png',
+            styleName: 'sprite.scss',
+            imgPath: 'sprite.png',
+            padding: 10
+        }))
+        .pipe(gulp.dest('./psd/assets/sprite/'));
 });
 
 gulp.task('minreplace', function () {
