@@ -1,4 +1,7 @@
 nav {
+  &.navbar{
+    margin-bottom: 0;
+  }
   a:hover{
     cursor: pointer;
   }
