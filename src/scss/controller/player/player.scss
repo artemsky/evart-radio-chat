@@ -52,6 +52,10 @@
       border-right: 1px solid #e9e9e9;
       span{
         left: 2px;
+        cursor: pointer;
+        &:hover{
+          color: #000000;
+        }
       }
     }
     &.song{
@@ -113,7 +117,7 @@
           color: #657a8b;
           font-size: 18px;
           position: absolute;
-          padding: 20px 5px;
+          padding: 5px 5px;
           text-align: center;
           content: attr(data-off);
           height: 85px;
@@ -142,7 +146,7 @@
           }
           &:after{
             position: absolute;
-            padding: 30px 5px;
+            padding: 20px 5px;
             color: #2f9a4c;
             content: attr(data-on);
             transform: translateX(-(calc(190px/2)));

@@ -31,28 +31,68 @@ jQuery(function($) {
 
     });
 
-    //Rangeslider.js
+    //Rangeslider.js Audio Player
     $(document).ready(function() {
         var player = $("#player");
+        var audioplayer = $("#evartplayer");
+        var playbtn = player.find(".audioplayer .tablecell.play span");
+        var switchbtn = player.find(".switch input");
+        var liveframe = '<iframe id="liveplayer" src="https://mixlr.com/users/5218043/embed?color=1c4563&autoplay=true" style="display:block" width="400px" height="146px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>';
+        var audiolabel = $(".audioplayer .tablecell:first .tablerow");
+
+        var playerAction = function(){
+            if($(this).hasClass("glyphicon-play")){
+                $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
+                audioplayer.get(0).play();
+            } else {
+                $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
+                audioplayer.get(0).pause();
+            }
+        };
+        var switchAction = function(){
+            if($(this).is(":checked")){
+                audiolabel.hide();
+                audioplayer.get(0).pause();
+                playbtn.removeClass("glyphicon-pause").addClass("glyphicon-play");
+                audiolabel.parent().append(liveframe);
+                return true;
+            }
+            else{
+                audiolabel.show();
+                audioplayer.get(0).play();
+                playbtn.removeClass("glyphicon-play").addClass("glyphicon-pause");
+                audiolabel.parent().find("#liveplayer").remove();
+                return false;
+            }
+        };
         var rangeslider = player.find('input[type="range"]').rangeslider({
             polyfill: false,
 
             // Callback function
-            onInit: function() {},
+            onInit: function() {
+                switchAction.call(switchbtn);
+                audioplayer.get(0).volume = .5;
+                playbtn.click(playerAction);
+            },
 
             // Callback function
-            onSlide: function(position, value) {},
+            onSlide: function(position, value) {
+                audioplayer.get(0).volume = value/100;
+            },
 
             // Callback function
             onSlideEnd: function(position, value) {}
         });
         player.find(".volume-down").click(function(){
-            console.log(123);
             rangeslider.val(0).change();
         });
         player.find(".volume-up").click(function(){
             rangeslider.val(100).change();
         });
+
+
+        switchbtn.change(switchAction);
+
 
     });
 
@@ -78,7 +118,7 @@ jQuery(function($) {
             dots: false,
             autoplay: true,
             autoplayTimeout: 13000,
-            loop: true,
+            loop: false,
             navText: [
                 "<span class='glyphicon glyphicon-menu-left'></span>",
                 "<span class='glyphicon glyphicon-menu-right'></span>"]
@@ -120,48 +160,48 @@ jQuery(function($) {
     });
 
     //Video
-    $(document).ready(function() {
-        $("#video .owl-carousel").owlCarousel({
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            items: 1,
-            singleItem: true,
-            dots: true,
-            loop: true
-        });
-
-    });
+    // $(document).ready(function() {
+    //     $("#video .owl-carousel").owlCarousel({
+    //         slideSpeed : 300,
+    //         paginationSpeed : 400,
+    //         items: 1,
+    //         singleItem: true,
+    //         dots: true,
+    //         loop: true
+    //     });
+    //
+    // });
 
     //Efir Lower
-    $(document).ready(function() {
-        var slider = $("#efir-lower .owl-carousel");
-        slider.owlCarousel({
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            items: slider.find(".item").length-1,
-            autoplay: true,
-            autoplayTimeout: 9000,
-            loop: true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                650:{
-                    items:2
-                },
-                992:{
-                    items:3
-                },
-                1300:{
-                    items:4
-                },
-                1600:{
-                    items:5
-                }
-            }
-        });
-
-    });
+    // $(document).ready(function() {
+    //     var slider = $("#efir-lower .owl-carousel");
+    //     slider.owlCarousel({
+    //         slideSpeed : 300,
+    //         paginationSpeed : 400,
+    //         items: slider.find(".item").length-1,
+    //         autoplay: true,
+    //         autoplayTimeout: 9000,
+    //         loop: true,
+    //         responsive:{
+    //             0:{
+    //                 items:1
+    //             },
+    //             650:{
+    //                 items:2
+    //             },
+    //             992:{
+    //                 items:3
+    //             },
+    //             1300:{
+    //                 items:4
+    //             },
+    //             1600:{
+    //                 items:5
+    //             }
+    //         }
+    //     });
+    //
+    // });
 
     //Sendmail request demo
     $(document).ready(function() {
@@ -173,7 +213,7 @@ jQuery(function($) {
             }
          */
 
-        var URL = "script.php";
+        var URL = "sendmail.php";
 
         $("#sendmail").click(function(){
             var form = $("#support form");
@@ -190,17 +230,17 @@ jQuery(function($) {
                 setTimeout(function(){
                     obj.removeClass("error")
                         .hide();
-                }, 10000)
+                    form.get(0).reset();
+                }, 5000)
                 
             });
         });
 
 
     });
+    
 
     
     
 
 });
-
-

@@ -17,4 +17,16 @@ $(function(){
         });
     });
 
+    $("#live .moreinfo").hide(0);
+    $(function(){
+        var live = $("#live");
+        var more = live.find(".moreinfo");
+        more.hide(0);
+        live.click(function(){
+            more.css("opacity", "1");
+            more.toggle(200);
+        });
+    });
+
 });
+$("#live .moreinfo").hide(0);

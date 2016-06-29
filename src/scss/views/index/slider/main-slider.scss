@@ -24,7 +24,6 @@
             font-family: "Open Sans Regular";
             font-size: 30px;
             line-height: 1;
-            text-transform: capitalize;
             color: #fff;
             @media (max-width: 768px){
               margin-top: 50px;
@@ -38,6 +37,16 @@
             color: #fff;
             @media (max-width: 768px) {
               font-size: 68px;
+            }
+          }
+          h2{
+            font-family: "Open Sans Bold";
+            font-size: 60px;
+            line-height: 1.1;
+            text-transform: capitalize;
+            color: #fff;
+            @media (max-width: 768px) {
+              font-size: 48px;
             }
           }
           .event-handler{
